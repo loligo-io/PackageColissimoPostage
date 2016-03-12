@@ -51,7 +51,8 @@ Start looking into the auto-generated [tutorial.php](tutorial.php) file. This fi
 ## Start from the samples
 Sample scripts are available under the [samples](samples) folder:
 
-- [GetServerTimeZones](samples/GetServerTimeZones.php)
+- [GenerateLabel](samples/GenerateLabel.php)
+- [GetProductInter](samples/GetProductInter.php)
 
 # Need support or having a question?
 We can help you understand how to use it and how to customize it. Feel free to contact us at contact@wsdltophp.com.
