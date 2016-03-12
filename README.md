@@ -1,7 +1,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/WsdlToPhp/PackageColissimoPostage/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/WsdlToPhp/PackageColissimoPostage/?branch=develop)
 [![Latest Stable Version](https://poser.pugx.org/wsdltophp/package-colissimo-postage/v/stable)](https://packagist.org/packages/wsdltophp/package-colissimo-postage)
-[![Dependency Status](https://www.versioneye.com/user/projects/55fc8608ddc3cf0014000209/badge.svg)](https://www.versioneye.com/user/projects/55fc8608ddc3cf0014000209)
-[![StyleCI](https://styleci.io/repos/41913278/shield)](https://styleci.io/repos/41913278)
+[![Dependency Status](https://www.versioneye.com/user/projects/56e426e4df573d003a5f5e9f/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56e426e4df573d003a5f5e9f)
+[![StyleCI](https://styleci.io/repos/53735115/shield)](https://styleci.io/repos/53735115)
 [![Total Downloads](https://poser.pugx.org/wsdltophp/package-colissimo-postage/downloads)](https://packagist.org/packages/wsdltophp/package-colissimo-postage)
 
 # PackageColissimoPostage
