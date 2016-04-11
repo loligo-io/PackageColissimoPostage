@@ -47,26 +47,36 @@ class OutputFormat extends AbstractStructBase
      */
     public $returnType;
     /**
+     * The printCODDocument
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var bool
+     */
+    public $printCODDocument;
+    /**
      * Constructor method for outputFormat
      * @uses OutputFormat::setX()
      * @uses OutputFormat::setY()
      * @uses OutputFormat::setOutputPrintingType()
      * @uses OutputFormat::setDematerialized()
      * @uses OutputFormat::setReturnType()
+     * @uses OutputFormat::setPrintCODDocument()
      * @param int $x
      * @param int $y
      * @param string $outputPrintingType
      * @param bool $dematerialized
      * @param string $returnType
+     * @param bool $printCODDocument
      */
-    public function __construct($x = null, $y = null, $outputPrintingType = null, $dematerialized = null, $returnType = null)
+    public function __construct($x = null, $y = null, $outputPrintingType = null, $dematerialized = null, $returnType = null, $printCODDocument = null)
     {
         $this
             ->setX($x)
             ->setY($y)
             ->setOutputPrintingType($outputPrintingType)
             ->setDematerialized($dematerialized)
-            ->setReturnType($returnType);
+            ->setReturnType($returnType)
+            ->setPrintCODDocument($printCODDocument);
     }
     /**
      * Get x value
@@ -172,6 +182,24 @@ class OutputFormat extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($returnType)), __LINE__);
         }
         $this->returnType = $returnType;
+        return $this;
+    }
+    /**
+     * Get printCODDocument value
+     * @return bool|null
+     */
+    public function getPrintCODDocument()
+    {
+        return $this->printCODDocument;
+    }
+    /**
+     * Set printCODDocument value
+     * @param bool $printCODDocument
+     * @return \ColissimoPostage\StructType\OutputFormat
+     */
+    public function setPrintCODDocument($printCODDocument = null)
+    {
+        $this->printCODDocument = $printCODDocument;
         return $this;
     }
     /**

@@ -48,6 +48,27 @@ class Article extends AbstractStructBase
      */
     public $originCountry;
     /**
+     * The currency
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var string
+     */
+    public $currency;
+    /**
+     * The artref
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var string
+     */
+    public $artref;
+    /**
+     * The originalIdent
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var string
+     */
+    public $originalIdent;
+    /**
      * Constructor method for article
      * @uses Article::setDescription()
      * @uses Article::setQuantity()
@@ -55,14 +76,20 @@ class Article extends AbstractStructBase
      * @uses Article::setValue()
      * @uses Article::setHsCode()
      * @uses Article::setOriginCountry()
+     * @uses Article::setCurrency()
+     * @uses Article::setArtref()
+     * @uses Article::setOriginalIdent()
      * @param string $description
      * @param int $quantity
      * @param float $weight
      * @param float $value
      * @param string $hsCode
      * @param string $originCountry
+     * @param string $currency
+     * @param string $artref
+     * @param string $originalIdent
      */
-    public function __construct($description = null, $quantity = null, $weight = null, $value = null, $hsCode = null, $originCountry = null)
+    public function __construct($description = null, $quantity = null, $weight = null, $value = null, $hsCode = null, $originCountry = null, $currency = null, $artref = null, $originalIdent = null)
     {
         $this
             ->setDescription($description)
@@ -70,7 +97,10 @@ class Article extends AbstractStructBase
             ->setWeight($weight)
             ->setValue($value)
             ->setHsCode($hsCode)
-            ->setOriginCountry($originCountry);
+            ->setOriginCountry($originCountry)
+            ->setCurrency($currency)
+            ->setArtref($artref)
+            ->setOriginalIdent($originalIdent);
     }
     /**
      * Get description value
@@ -194,6 +224,72 @@ class Article extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($originCountry)), __LINE__);
         }
         $this->originCountry = $originCountry;
+        return $this;
+    }
+    /**
+     * Get currency value
+     * @return string|null
+     */
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+    /**
+     * Set currency value
+     * @param string $currency
+     * @return \ColissimoPostage\StructType\Article
+     */
+    public function setCurrency($currency = null)
+    {
+        // validation for constraint: string
+        if (!is_null($currency) && !is_string($currency)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($currency)), __LINE__);
+        }
+        $this->currency = $currency;
+        return $this;
+    }
+    /**
+     * Get artref value
+     * @return string|null
+     */
+    public function getArtref()
+    {
+        return $this->artref;
+    }
+    /**
+     * Set artref value
+     * @param string $artref
+     * @return \ColissimoPostage\StructType\Article
+     */
+    public function setArtref($artref = null)
+    {
+        // validation for constraint: string
+        if (!is_null($artref) && !is_string($artref)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($artref)), __LINE__);
+        }
+        $this->artref = $artref;
+        return $this;
+    }
+    /**
+     * Get originalIdent value
+     * @return string|null
+     */
+    public function getOriginalIdent()
+    {
+        return $this->originalIdent;
+    }
+    /**
+     * Set originalIdent value
+     * @param string $originalIdent
+     * @return \ColissimoPostage\StructType\Article
+     */
+    public function setOriginalIdent($originalIdent = null)
+    {
+        // validation for constraint: string
+        if (!is_null($originalIdent) && !is_string($originalIdent)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($originalIdent)), __LINE__);
+        }
+        $this->originalIdent = $originalIdent;
         return $this;
     }
     /**

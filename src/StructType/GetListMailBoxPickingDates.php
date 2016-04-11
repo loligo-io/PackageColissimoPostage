@@ -23,8 +23,7 @@ class GetListMailBoxPickingDates extends AbstractStructBase
     /**
      * Constructor method for getListMailBoxPickingDates
      * @uses GetListMailBoxPickingDates::setGetListMailBoxPickingDatesRetourRequest()
-     * @param \ColissimoPostage\StructType\GetListMailBoxPickingDatesRetourRequest
-     * $getListMailBoxPickingDatesRetourRequest
+     * @param \ColissimoPostage\StructType\GetListMailBoxPickingDatesRetourRequest $getListMailBoxPickingDatesRetourRequest
      */
     public function __construct(\ColissimoPostage\StructType\GetListMailBoxPickingDatesRetourRequest $getListMailBoxPickingDatesRetourRequest = null)
     {
@@ -33,8 +32,7 @@ class GetListMailBoxPickingDates extends AbstractStructBase
     }
     /**
      * Get getListMailBoxPickingDatesRetourRequest value
-     * @return
-     * \ColissimoPostage\StructType\GetListMailBoxPickingDatesRetourRequest|null
+     * @return \ColissimoPostage\StructType\GetListMailBoxPickingDatesRetourRequest|null
      */
     public function getGetListMailBoxPickingDatesRetourRequest()
     {
@@ -42,8 +40,7 @@ class GetListMailBoxPickingDates extends AbstractStructBase
     }
     /**
      * Set getListMailBoxPickingDatesRetourRequest value
-     * @param \ColissimoPostage\StructType\GetListMailBoxPickingDatesRetourRequest
-     * $getListMailBoxPickingDatesRetourRequest
+     * @param \ColissimoPostage\StructType\GetListMailBoxPickingDatesRetourRequest $getListMailBoxPickingDatesRetourRequest
      * @return \ColissimoPostage\StructType\GetListMailBoxPickingDates
      */
     public function setGetListMailBoxPickingDatesRetourRequest(\ColissimoPostage\StructType\GetListMailBoxPickingDatesRetourRequest $getListMailBoxPickingDatesRetourRequest = null)

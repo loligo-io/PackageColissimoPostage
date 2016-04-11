@@ -99,7 +99,7 @@ class GetListMailBoxPickingDatesResponseType extends BaseResponse
                 throw new \InvalidArgumentException(sprintf('The mailBoxPickingDates property can only contain items of dateTime, "%s" given', is_object($getListMailBoxPickingDatesResponseTypeMailBoxPickingDatesItem) ? get_class($getListMailBoxPickingDatesResponseTypeMailBoxPickingDatesItem) : gettype($getListMailBoxPickingDatesResponseTypeMailBoxPickingDatesItem)), __LINE__);
             }
         }
-        if (is_null($mailBoxPickingDates)) {
+        if (is_null($mailBoxPickingDates) || (is_array($mailBoxPickingDates) && empty($mailBoxPickingDates))) {
             unset($this->mailBoxPickingDates);
         } else {
             $this->mailBoxPickingDates = $mailBoxPickingDates;

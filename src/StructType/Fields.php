@@ -57,7 +57,7 @@ class Fields extends AbstractStructBase
                 throw new \InvalidArgumentException(sprintf('The field property can only contain items of \ColissimoPostage\StructType\Field, "%s" given', is_object($fieldsFieldItem) ? get_class($fieldsFieldItem) : gettype($fieldsFieldItem)), __LINE__);
             }
         }
-        if (is_null($field)) {
+        if (is_null($field) || (is_array($field) && empty($field))) {
             unset($this->field);
         } else {
             $this->field = $field;

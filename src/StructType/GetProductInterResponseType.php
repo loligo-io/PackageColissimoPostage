@@ -79,7 +79,7 @@ class GetProductInterResponseType extends BaseResponse
                 throw new \InvalidArgumentException(sprintf('The product property can only contain items of string, "%s" given', is_object($getProductInterResponseTypeProductItem) ? get_class($getProductInterResponseTypeProductItem) : gettype($getProductInterResponseTypeProductItem)), __LINE__);
             }
         }
-        if (is_null($product)) {
+        if (is_null($product) || (is_array($product) && empty($product))) {
             unset($this->product);
         } else {
             $this->product = $product;
@@ -150,7 +150,7 @@ class GetProductInterResponseType extends BaseResponse
                 throw new \InvalidArgumentException(sprintf('The returnTypeChoice property can only contain items of string, "%s" given', is_object($getProductInterResponseTypeReturnTypeChoiceItem) ? get_class($getProductInterResponseTypeReturnTypeChoiceItem) : gettype($getProductInterResponseTypeReturnTypeChoiceItem)), __LINE__);
             }
         }
-        if (is_null($returnTypeChoice)) {
+        if (is_null($returnTypeChoice) || (is_array($returnTypeChoice) && empty($returnTypeChoice))) {
             unset($this->returnTypeChoice);
         } else {
             $this->returnTypeChoice = $returnTypeChoice;

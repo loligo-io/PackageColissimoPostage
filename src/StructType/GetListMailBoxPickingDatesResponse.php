@@ -23,8 +23,7 @@ class GetListMailBoxPickingDatesResponse extends AbstractStructBase
     /**
      * Constructor method for getListMailBoxPickingDatesResponse
      * @uses GetListMailBoxPickingDatesResponse::setReturn()
-     * @param \ColissimoPostage\StructType\GetListMailBoxPickingDatesResponseType
-     * $return
+     * @param \ColissimoPostage\StructType\GetListMailBoxPickingDatesResponseType $return
      */
     public function __construct(\ColissimoPostage\StructType\GetListMailBoxPickingDatesResponseType $return = null)
     {
@@ -41,8 +40,7 @@ class GetListMailBoxPickingDatesResponse extends AbstractStructBase
     }
     /**
      * Set return value
-     * @param \ColissimoPostage\StructType\GetListMailBoxPickingDatesResponseType
-     * $return
+     * @param \ColissimoPostage\StructType\GetListMailBoxPickingDatesResponseType $return
      * @return \ColissimoPostage\StructType\GetListMailBoxPickingDatesResponse
      */
     public function setReturn(\ColissimoPostage\StructType\GetListMailBoxPickingDatesResponseType $return = null)
