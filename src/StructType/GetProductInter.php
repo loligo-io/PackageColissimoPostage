@@ -23,8 +23,7 @@ class GetProductInter extends AbstractStructBase
     /**
      * Constructor method for getProductInter
      * @uses GetProductInter::setGetProductInterRequest()
-     * @param \ColissimoPostage\StructType\GetProductInterRequest
-     * $getProductInterRequest
+     * @param \ColissimoPostage\StructType\GetProductInterRequest $getProductInterRequest
      */
     public function __construct(\ColissimoPostage\StructType\GetProductInterRequest $getProductInterRequest = null)
     {
@@ -41,8 +40,7 @@ class GetProductInter extends AbstractStructBase
     }
     /**
      * Set getProductInterRequest value
-     * @param \ColissimoPostage\StructType\GetProductInterRequest
-     * $getProductInterRequest
+     * @param \ColissimoPostage\StructType\GetProductInterRequest $getProductInterRequest
      * @return \ColissimoPostage\StructType\GetProductInter
      */
     public function setGetProductInterRequest(\ColissimoPostage\StructType\GetProductInterRequest $getProductInterRequest = null)

@@ -28,17 +28,29 @@ class Contents extends AbstractStructBase
      */
     public $category;
     /**
+     * The original
+     * Meta informations extracted from the WSDL
+     * - maxOccurs: unbounded
+     * - minOccurs: 0
+     * - nillable: true
+     * @var \ColissimoPostage\StructType\Original[]
+     */
+    public $original;
+    /**
      * Constructor method for contents
      * @uses Contents::setArticle()
      * @uses Contents::setCategory()
+     * @uses Contents::setOriginal()
      * @param \ColissimoPostage\StructType\Article[] $article
      * @param \ColissimoPostage\StructType\Category $category
+     * @param \ColissimoPostage\StructType\Original[] $original
      */
-    public function __construct(array $article = array(), \ColissimoPostage\StructType\Category $category = null)
+    public function __construct(array $article = array(), \ColissimoPostage\StructType\Category $category = null, array $original = array())
     {
         $this
             ->setArticle($article)
-            ->setCategory($category);
+            ->setCategory($category)
+            ->setOriginal($original);
     }
     /**
      * Get article value
@@ -67,7 +79,7 @@ class Contents extends AbstractStructBase
                 throw new \InvalidArgumentException(sprintf('The article property can only contain items of \ColissimoPostage\StructType\Article, "%s" given', is_object($contentsArticleItem) ? get_class($contentsArticleItem) : gettype($contentsArticleItem)), __LINE__);
             }
         }
-        if (is_null($article)) {
+        if (is_null($article) || (is_array($article) && empty($article))) {
             unset($this->article);
         } else {
             $this->article = $article;
@@ -105,6 +117,55 @@ class Contents extends AbstractStructBase
     public function setCategory(\ColissimoPostage\StructType\Category $category = null)
     {
         $this->category = $category;
+        return $this;
+    }
+    /**
+     * Get original value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \ColissimoPostage\StructType\Original[]|null
+     */
+    public function getOriginal()
+    {
+        return isset($this->original) ? $this->original : null;
+    }
+    /**
+     * Set original value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @throws \InvalidArgumentException
+     * @param \ColissimoPostage\StructType\Original[] $original
+     * @return \ColissimoPostage\StructType\Contents
+     */
+    public function setOriginal(array $original = array())
+    {
+        foreach ($original as $contentsOriginalItem) {
+            // validation for constraint: itemType
+            if (!$contentsOriginalItem instanceof \ColissimoPostage\StructType\Original) {
+                throw new \InvalidArgumentException(sprintf('The original property can only contain items of \ColissimoPostage\StructType\Original, "%s" given', is_object($contentsOriginalItem) ? get_class($contentsOriginalItem) : gettype($contentsOriginalItem)), __LINE__);
+            }
+        }
+        if (is_null($original) || (is_array($original) && empty($original))) {
+            unset($this->original);
+        } else {
+            $this->original = $original;
+        }
+        return $this;
+    }
+    /**
+     * Add item to original value
+     * @throws \InvalidArgumentException
+     * @param \ColissimoPostage\StructType\Original $item
+     * @return \ColissimoPostage\StructType\Contents
+     */
+    public function addToOriginal(\ColissimoPostage\StructType\Original $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \ColissimoPostage\StructType\Original) {
+            throw new \InvalidArgumentException(sprintf('The original property can only contain items of \ColissimoPostage\StructType\Original, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->original[] = $item;
         return $this;
     }
     /**

@@ -62,6 +62,15 @@ class XmlResponse extends AbstractStructBase
      */
     public $contractNumber;
     /**
+     * The elementVisual
+     * Meta informations extracted from the WSDL
+     * - maxOccurs: unbounded
+     * - minOccurs: 0
+     * - nillable: true
+     * @var \ColissimoPostage\StructType\ElementVisual[]
+     */
+    public $elementVisual;
+    /**
      * The numberPCH
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
@@ -133,6 +142,7 @@ class XmlResponse extends AbstractStructBase
      * @uses XmlResponse::setBarCodeRouting()
      * @uses XmlResponse::setBelgiumLabel()
      * @uses XmlResponse::setContractNumber()
+     * @uses XmlResponse::setElementVisual()
      * @uses XmlResponse::setNumberPCH()
      * @uses XmlResponse::setNumberRouting()
      * @uses XmlResponse::setParcelNumber()
@@ -149,6 +159,7 @@ class XmlResponse extends AbstractStructBase
      * @param string $barCodeRouting
      * @param \ColissimoPostage\StructType\BelgiumLabel $belgiumLabel
      * @param string $contractNumber
+     * @param \ColissimoPostage\StructType\ElementVisual[] $elementVisual
      * @param string $numberPCH
      * @param string $numberRouting
      * @param string $parcelNumber
@@ -159,7 +170,7 @@ class XmlResponse extends AbstractStructBase
      * @param \ColissimoPostage\StructType\Site $sitePCH
      * @param \ColissimoPostage\StructType\ZoneRouting $zoneRouting
      */
-    public function __construct(base64Binary $cn23 = null, \ColissimoPostage\StructType\Addressee $addressee = null, $barCodeCityssimo = null, $barCodePCH = null, $barCodeRouting = null, \ColissimoPostage\StructType\BelgiumLabel $belgiumLabel = null, $contractNumber = null, $numberPCH = null, $numberRouting = null, $parcelNumber = null, $parcelNumberPartner = null, \ColissimoPostage\StructType\PickupLocation $pickupLocation = null, \ColissimoPostage\StructType\Routing $routing = null, \ColissimoPostage\StructType\Sender $sender = null, \ColissimoPostage\StructType\Site $sitePCH = null, \ColissimoPostage\StructType\ZoneRouting $zoneRouting = null)
+    public function __construct(base64Binary $cn23 = null, \ColissimoPostage\StructType\Addressee $addressee = null, $barCodeCityssimo = null, $barCodePCH = null, $barCodeRouting = null, \ColissimoPostage\StructType\BelgiumLabel $belgiumLabel = null, $contractNumber = null, array $elementVisual = array(), $numberPCH = null, $numberRouting = null, $parcelNumber = null, $parcelNumberPartner = null, \ColissimoPostage\StructType\PickupLocation $pickupLocation = null, \ColissimoPostage\StructType\Routing $routing = null, \ColissimoPostage\StructType\Sender $sender = null, \ColissimoPostage\StructType\Site $sitePCH = null, \ColissimoPostage\StructType\ZoneRouting $zoneRouting = null)
     {
         $this
             ->setCn23($cn23)
@@ -169,6 +180,7 @@ class XmlResponse extends AbstractStructBase
             ->setBarCodeRouting($barCodeRouting)
             ->setBelgiumLabel($belgiumLabel)
             ->setContractNumber($contractNumber)
+            ->setElementVisual($elementVisual)
             ->setNumberPCH($numberPCH)
             ->setNumberRouting($numberRouting)
             ->setParcelNumber($parcelNumber)
@@ -319,6 +331,55 @@ class XmlResponse extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($contractNumber)), __LINE__);
         }
         $this->contractNumber = $contractNumber;
+        return $this;
+    }
+    /**
+     * Get elementVisual value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \ColissimoPostage\StructType\ElementVisual[]|null
+     */
+    public function getElementVisual()
+    {
+        return isset($this->elementVisual) ? $this->elementVisual : null;
+    }
+    /**
+     * Set elementVisual value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @throws \InvalidArgumentException
+     * @param \ColissimoPostage\StructType\ElementVisual[] $elementVisual
+     * @return \ColissimoPostage\StructType\XmlResponse
+     */
+    public function setElementVisual(array $elementVisual = array())
+    {
+        foreach ($elementVisual as $xmlResponseElementVisualItem) {
+            // validation for constraint: itemType
+            if (!$xmlResponseElementVisualItem instanceof \ColissimoPostage\StructType\ElementVisual) {
+                throw new \InvalidArgumentException(sprintf('The elementVisual property can only contain items of \ColissimoPostage\StructType\ElementVisual, "%s" given', is_object($xmlResponseElementVisualItem) ? get_class($xmlResponseElementVisualItem) : gettype($xmlResponseElementVisualItem)), __LINE__);
+            }
+        }
+        if (is_null($elementVisual) || (is_array($elementVisual) && empty($elementVisual))) {
+            unset($this->elementVisual);
+        } else {
+            $this->elementVisual = $elementVisual;
+        }
+        return $this;
+    }
+    /**
+     * Add item to elementVisual value
+     * @throws \InvalidArgumentException
+     * @param \ColissimoPostage\StructType\ElementVisual $item
+     * @return \ColissimoPostage\StructType\XmlResponse
+     */
+    public function addToElementVisual(\ColissimoPostage\StructType\ElementVisual $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \ColissimoPostage\StructType\ElementVisual) {
+            throw new \InvalidArgumentException(sprintf('The elementVisual property can only contain items of \ColissimoPostage\StructType\ElementVisual, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->elementVisual[] = $item;
         return $this;
     }
     /**

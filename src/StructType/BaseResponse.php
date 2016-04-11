@@ -57,7 +57,7 @@ abstract class BaseResponse extends AbstractStructBase
                 throw new \InvalidArgumentException(sprintf('The messages property can only contain items of \ColissimoPostage\StructType\Message, "%s" given', is_object($baseResponseMessagesItem) ? get_class($baseResponseMessagesItem) : gettype($baseResponseMessagesItem)), __LINE__);
             }
         }
-        if (is_null($messages)) {
+        if (is_null($messages) || (is_array($messages) && empty($messages))) {
             unset($this->messages);
         } else {
             $this->messages = $messages;

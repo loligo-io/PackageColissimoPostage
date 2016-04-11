@@ -68,12 +68,12 @@ class Routing extends AbstractStructBase
      */
     public $serviceMark;
     /**
-     * The serviceName
+     * The serviceText
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
-    public $serviceName;
+    public $serviceText;
     /**
      * The sortDest
      * Meta informations extracted from the WSDL
@@ -98,7 +98,7 @@ class Routing extends AbstractStructBase
      * @uses Routing::setPartnerType()
      * @uses Routing::setRoutingVersion()
      * @uses Routing::setServiceMark()
-     * @uses Routing::setServiceName()
+     * @uses Routing::setServiceText()
      * @uses Routing::setSortDest()
      * @uses Routing::setSortOrigin()
      * @param string $barcodeId
@@ -109,11 +109,11 @@ class Routing extends AbstractStructBase
      * @param string $partnerType
      * @param string $routingVersion
      * @param string $serviceMark
-     * @param string $serviceName
+     * @param string $serviceText
      * @param string $sortDest
      * @param string $sortOrigin
      */
-    public function __construct($barcodeId = null, $depotDest = null, $destinationCountry = null, $destinationCountryText = null, $groupingPriorityLabel = null, $partnerType = null, $routingVersion = null, $serviceMark = null, $serviceName = null, $sortDest = null, $sortOrigin = null)
+    public function __construct($barcodeId = null, $depotDest = null, $destinationCountry = null, $destinationCountryText = null, $groupingPriorityLabel = null, $partnerType = null, $routingVersion = null, $serviceMark = null, $serviceText = null, $sortDest = null, $sortOrigin = null)
     {
         $this
             ->setBarcodeId($barcodeId)
@@ -124,7 +124,7 @@ class Routing extends AbstractStructBase
             ->setPartnerType($partnerType)
             ->setRoutingVersion($routingVersion)
             ->setServiceMark($serviceMark)
-            ->setServiceName($serviceName)
+            ->setServiceText($serviceText)
             ->setSortDest($sortDest)
             ->setSortOrigin($sortOrigin);
     }
@@ -305,25 +305,25 @@ class Routing extends AbstractStructBase
         return $this;
     }
     /**
-     * Get serviceName value
+     * Get serviceText value
      * @return string|null
      */
-    public function getServiceName()
+    public function getServiceText()
     {
-        return $this->serviceName;
+        return $this->serviceText;
     }
     /**
-     * Set serviceName value
-     * @param string $serviceName
+     * Set serviceText value
+     * @param string $serviceText
      * @return \ColissimoPostage\StructType\Routing
      */
-    public function setServiceName($serviceName = null)
+    public function setServiceText($serviceText = null)
     {
         // validation for constraint: string
-        if (!is_null($serviceName) && !is_string($serviceName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($serviceName)), __LINE__);
+        if (!is_null($serviceText) && !is_string($serviceText)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($serviceText)), __LINE__);
         }
-        $this->serviceName = $serviceName;
+        $this->serviceText = $serviceText;
         return $this;
     }
     /**

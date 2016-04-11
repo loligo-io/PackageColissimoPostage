@@ -47,26 +47,66 @@ class CustomsDeclarations extends AbstractStructBase
      */
     public $officeOrigin;
     /**
+     * The comments
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var string
+     */
+    public $comments;
+    /**
+     * The invoiceNumber
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var string
+     */
+    public $invoiceNumber;
+    /**
+     * The licenceNumber
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var string
+     */
+    public $licenceNumber;
+    /**
+     * The certificatNumber
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var string
+     */
+    public $certificatNumber;
+    /**
      * Constructor method for customsDeclarations
      * @uses CustomsDeclarations::setIncludeCustomsDeclarations()
      * @uses CustomsDeclarations::setContents()
      * @uses CustomsDeclarations::setImportersReference()
      * @uses CustomsDeclarations::setImportersContact()
      * @uses CustomsDeclarations::setOfficeOrigin()
+     * @uses CustomsDeclarations::setComments()
+     * @uses CustomsDeclarations::setInvoiceNumber()
+     * @uses CustomsDeclarations::setLicenceNumber()
+     * @uses CustomsDeclarations::setCertificatNumber()
      * @param bool $includeCustomsDeclarations
      * @param \ColissimoPostage\StructType\Contents $contents
      * @param string $importersReference
      * @param string $importersContact
      * @param string $officeOrigin
+     * @param string $comments
+     * @param string $invoiceNumber
+     * @param string $licenceNumber
+     * @param string $certificatNumber
      */
-    public function __construct($includeCustomsDeclarations = null, \ColissimoPostage\StructType\Contents $contents = null, $importersReference = null, $importersContact = null, $officeOrigin = null)
+    public function __construct($includeCustomsDeclarations = null, \ColissimoPostage\StructType\Contents $contents = null, $importersReference = null, $importersContact = null, $officeOrigin = null, $comments = null, $invoiceNumber = null, $licenceNumber = null, $certificatNumber = null)
     {
         $this
             ->setIncludeCustomsDeclarations($includeCustomsDeclarations)
             ->setContents($contents)
             ->setImportersReference($importersReference)
             ->setImportersContact($importersContact)
-            ->setOfficeOrigin($officeOrigin);
+            ->setOfficeOrigin($officeOrigin)
+            ->setComments($comments)
+            ->setInvoiceNumber($invoiceNumber)
+            ->setLicenceNumber($licenceNumber)
+            ->setCertificatNumber($certificatNumber);
     }
     /**
      * Get includeCustomsDeclarations value
@@ -168,6 +208,94 @@ class CustomsDeclarations extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($officeOrigin)), __LINE__);
         }
         $this->officeOrigin = $officeOrigin;
+        return $this;
+    }
+    /**
+     * Get comments value
+     * @return string|null
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+    /**
+     * Set comments value
+     * @param string $comments
+     * @return \ColissimoPostage\StructType\CustomsDeclarations
+     */
+    public function setComments($comments = null)
+    {
+        // validation for constraint: string
+        if (!is_null($comments) && !is_string($comments)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($comments)), __LINE__);
+        }
+        $this->comments = $comments;
+        return $this;
+    }
+    /**
+     * Get invoiceNumber value
+     * @return string|null
+     */
+    public function getInvoiceNumber()
+    {
+        return $this->invoiceNumber;
+    }
+    /**
+     * Set invoiceNumber value
+     * @param string $invoiceNumber
+     * @return \ColissimoPostage\StructType\CustomsDeclarations
+     */
+    public function setInvoiceNumber($invoiceNumber = null)
+    {
+        // validation for constraint: string
+        if (!is_null($invoiceNumber) && !is_string($invoiceNumber)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($invoiceNumber)), __LINE__);
+        }
+        $this->invoiceNumber = $invoiceNumber;
+        return $this;
+    }
+    /**
+     * Get licenceNumber value
+     * @return string|null
+     */
+    public function getLicenceNumber()
+    {
+        return $this->licenceNumber;
+    }
+    /**
+     * Set licenceNumber value
+     * @param string $licenceNumber
+     * @return \ColissimoPostage\StructType\CustomsDeclarations
+     */
+    public function setLicenceNumber($licenceNumber = null)
+    {
+        // validation for constraint: string
+        if (!is_null($licenceNumber) && !is_string($licenceNumber)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($licenceNumber)), __LINE__);
+        }
+        $this->licenceNumber = $licenceNumber;
+        return $this;
+    }
+    /**
+     * Get certificatNumber value
+     * @return string|null
+     */
+    public function getCertificatNumber()
+    {
+        return $this->certificatNumber;
+    }
+    /**
+     * Set certificatNumber value
+     * @param string $certificatNumber
+     * @return \ColissimoPostage\StructType\CustomsDeclarations
+     */
+    public function setCertificatNumber($certificatNumber = null)
+    {
+        // validation for constraint: string
+        if (!is_null($certificatNumber) && !is_string($certificatNumber)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($certificatNumber)), __LINE__);
+        }
+        $this->certificatNumber = $certificatNumber;
         return $this;
     }
     /**
