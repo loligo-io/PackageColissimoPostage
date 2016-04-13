@@ -13,7 +13,8 @@ This package has been generated from the [Colissimo Postage Web Services](https:
     - [Install the project](#install-the-project)
     - [Learn from the tutorial](#learn-from-the-tutorial)
     - [Start from the samples](#start-from-the-samples)
-        - [GetServerTimeZones](samples/GetServerTimeZones.php)
+        - [GenerateLabel](samples/GenerateLabel.php)
+        - [GetProductInter](samples/GetProductInter.php)
 - [Need support or having a question?](#need-support-or-having-a-question)
 
 # Generating again the package
