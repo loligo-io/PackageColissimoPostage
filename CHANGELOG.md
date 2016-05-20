@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 0.0.4
+- Update generated classes using latest generator version (classmap, integer validations)
+
 ## 0.0.3
 - Update readme
 
