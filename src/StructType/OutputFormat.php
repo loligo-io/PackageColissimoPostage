@@ -94,8 +94,8 @@ class OutputFormat extends AbstractStructBase
     public function setX($x = null)
     {
         // validation for constraint: int
-        if (!is_null($x) && !is_int($x)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($x)), __LINE__);
+        if (!is_null($x) && !is_numeric($x)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($x)), __LINE__);
         }
         $this->x = $x;
         return $this;
@@ -116,8 +116,8 @@ class OutputFormat extends AbstractStructBase
     public function setY($y = null)
     {
         // validation for constraint: int
-        if (!is_null($y) && !is_int($y)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($y)), __LINE__);
+        if (!is_null($y) && !is_numeric($y)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($y)), __LINE__);
         }
         $this->y = $y;
         return $this;

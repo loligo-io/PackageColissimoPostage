@@ -140,8 +140,8 @@ class Article extends AbstractStructBase
     public function setQuantity($quantity = null)
     {
         // validation for constraint: int
-        if (!is_null($quantity) && !is_int($quantity)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($quantity)), __LINE__);
+        if (!is_null($quantity) && !is_numeric($quantity)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($quantity)), __LINE__);
         }
         $this->quantity = $quantity;
         return $this;

@@ -234,8 +234,8 @@ class Service extends AbstractStructBase
     public function setVatCode($vatCode = null)
     {
         // validation for constraint: int
-        if (!is_null($vatCode) && !is_int($vatCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($vatCode)), __LINE__);
+        if (!is_null($vatCode) && !is_numeric($vatCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($vatCode)), __LINE__);
         }
         $this->vatCode = $vatCode;
         return $this;
@@ -256,8 +256,8 @@ class Service extends AbstractStructBase
     public function setVatPercentage($vatPercentage = null)
     {
         // validation for constraint: int
-        if (!is_null($vatPercentage) && !is_int($vatPercentage)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($vatPercentage)), __LINE__);
+        if (!is_null($vatPercentage) && !is_numeric($vatPercentage)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($vatPercentage)), __LINE__);
         }
         $this->vatPercentage = $vatPercentage;
         return $this;
@@ -278,8 +278,8 @@ class Service extends AbstractStructBase
     public function setVatAmount($vatAmount = null)
     {
         // validation for constraint: int
-        if (!is_null($vatAmount) && !is_int($vatAmount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($vatAmount)), __LINE__);
+        if (!is_null($vatAmount) && !is_numeric($vatAmount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($vatAmount)), __LINE__);
         }
         $this->vatAmount = $vatAmount;
         return $this;
@@ -300,8 +300,8 @@ class Service extends AbstractStructBase
     public function setTransportationAmount($transportationAmount = null)
     {
         // validation for constraint: int
-        if (!is_null($transportationAmount) && !is_int($transportationAmount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($transportationAmount)), __LINE__);
+        if (!is_null($transportationAmount) && !is_numeric($transportationAmount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($transportationAmount)), __LINE__);
         }
         $this->transportationAmount = $transportationAmount;
         return $this;
@@ -322,8 +322,8 @@ class Service extends AbstractStructBase
     public function setTotalAmount($totalAmount = null)
     {
         // validation for constraint: int
-        if (!is_null($totalAmount) && !is_int($totalAmount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($totalAmount)), __LINE__);
+        if (!is_null($totalAmount) && !is_numeric($totalAmount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalAmount)), __LINE__);
         }
         $this->totalAmount = $totalAmount;
         return $this;
@@ -388,8 +388,8 @@ class Service extends AbstractStructBase
     public function setReturnTypeChoice($returnTypeChoice = null)
     {
         // validation for constraint: int
-        if (!is_null($returnTypeChoice) && !is_int($returnTypeChoice)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($returnTypeChoice)), __LINE__);
+        if (!is_null($returnTypeChoice) && !is_numeric($returnTypeChoice)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($returnTypeChoice)), __LINE__);
         }
         $this->returnTypeChoice = $returnTypeChoice;
         return $this;
