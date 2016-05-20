@@ -176,8 +176,8 @@ class Parcel extends AbstractStructBase
     public function setInsuranceAmount($insuranceAmount = null)
     {
         // validation for constraint: int
-        if (!is_null($insuranceAmount) && !is_int($insuranceAmount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($insuranceAmount)), __LINE__);
+        if (!is_null($insuranceAmount) && !is_numeric($insuranceAmount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($insuranceAmount)), __LINE__);
         }
         $this->insuranceAmount = $insuranceAmount;
         return $this;
@@ -198,8 +198,8 @@ class Parcel extends AbstractStructBase
     public function setInsuranceValue($insuranceValue = null)
     {
         // validation for constraint: int
-        if (!is_null($insuranceValue) && !is_int($insuranceValue)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($insuranceValue)), __LINE__);
+        if (!is_null($insuranceValue) && !is_numeric($insuranceValue)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($insuranceValue)), __LINE__);
         }
         $this->insuranceValue = $insuranceValue;
         return $this;
@@ -296,8 +296,8 @@ class Parcel extends AbstractStructBase
     public function setCODAmount($cODAmount = null)
     {
         // validation for constraint: int
-        if (!is_null($cODAmount) && !is_int($cODAmount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($cODAmount)), __LINE__);
+        if (!is_null($cODAmount) && !is_numeric($cODAmount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($cODAmount)), __LINE__);
         }
         $this->CODAmount = $cODAmount;
         return $this;

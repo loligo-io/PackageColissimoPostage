@@ -42,8 +42,8 @@ class Category extends AbstractStructBase
     public function setValue($value = null)
     {
         // validation for constraint: int
-        if (!is_null($value) && !is_int($value)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($value)), __LINE__);
+        if (!is_null($value) && !is_numeric($value)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($value)), __LINE__);
         }
         $this->value = $value;
         return $this;
