@@ -20,6 +20,8 @@ class Sender extends AbstractStructBase
     public $senderParcelRef;
     /**
      * The address
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
      * @var \ColissimoPostage\StructType\Address
      */
     public $address;

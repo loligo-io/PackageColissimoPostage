@@ -22,6 +22,18 @@ $options = array(
     \WsdlToPhp\PackageBase\AbstractSoapClientBase::WSDL_CLASSMAP => \ColissimoPostage\ClassMap::get(),
 );
 /**
+ * Samples for Check ServiceType
+ */
+$check = new \ColissimoPostage\ServiceType\Check($options);
+/**
+ * Sample call for checkGenerateLabel operation/method
+ */
+if ($check->checkGenerateLabel(new \ColissimoPostage\StructType\CheckGenerateLabel()) !== false) {
+    print_r($check->getResult());
+} else {
+    print_r($check->getLastError());
+}
+/**
  * Samples for Generate ServiceType
  */
 $generate = new \ColissimoPostage\ServiceType\Generate($options);
@@ -34,21 +46,25 @@ if ($generate->generateLabel(new \ColissimoPostage\StructType\GenerateLabel()) !
     print_r($generate->getLastError());
 }
 /**
- * Samples for Plan ServiceType
+ * Sample call for generateBordereauByParcelsNumbers operation/method
  */
-$plan = new \ColissimoPostage\ServiceType\Plan($options);
-/**
- * Sample call for planPickup operation/method
- */
-if ($plan->planPickup(new \ColissimoPostage\StructType\PlanPickup()) !== false) {
-    print_r($plan->getResult());
+if ($generate->generateBordereauByParcelsNumbers(new \ColissimoPostage\StructType\GenerateBordereauByParcelsNumbers()) !== false) {
+    print_r($generate->getResult());
 } else {
-    print_r($plan->getLastError());
+    print_r($generate->getLastError());
 }
 /**
  * Samples for Get ServiceType
  */
 $get = new \ColissimoPostage\ServiceType\Get($options);
+/**
+ * Sample call for getBordereauByNumber operation/method
+ */
+if ($get->getBordereauByNumber(new \ColissimoPostage\StructType\GetBordereauByNumber()) !== false) {
+    print_r($get->getResult());
+} else {
+    print_r($get->getLastError());
+}
 /**
  * Sample call for getListMailBoxPickingDates operation/method
  */
@@ -64,4 +80,16 @@ if ($get->getProductInter(new \ColissimoPostage\StructType\GetProductInter()) !=
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
+}
+/**
+ * Samples for Plan ServiceType
+ */
+$plan = new \ColissimoPostage\ServiceType\Plan($options);
+/**
+ * Sample call for planPickup operation/method
+ */
+if ($plan->planPickup(new \ColissimoPostage\StructType\PlanPickup()) !== false) {
+    print_r($plan->getResult());
+} else {
+    print_r($plan->getLastError());
 }

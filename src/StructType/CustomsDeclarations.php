@@ -75,6 +75,13 @@ class CustomsDeclarations extends AbstractStructBase
      */
     public $certificatNumber;
     /**
+     * The importerAddress
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \ColissimoPostage\StructType\ImporterAddress
+     */
+    public $importerAddress;
+    /**
      * Constructor method for customsDeclarations
      * @uses CustomsDeclarations::setIncludeCustomsDeclarations()
      * @uses CustomsDeclarations::setContents()
@@ -85,6 +92,7 @@ class CustomsDeclarations extends AbstractStructBase
      * @uses CustomsDeclarations::setInvoiceNumber()
      * @uses CustomsDeclarations::setLicenceNumber()
      * @uses CustomsDeclarations::setCertificatNumber()
+     * @uses CustomsDeclarations::setImporterAddress()
      * @param bool $includeCustomsDeclarations
      * @param \ColissimoPostage\StructType\Contents $contents
      * @param string $importersReference
@@ -94,8 +102,9 @@ class CustomsDeclarations extends AbstractStructBase
      * @param string $invoiceNumber
      * @param string $licenceNumber
      * @param string $certificatNumber
+     * @param \ColissimoPostage\StructType\ImporterAddress $importerAddress
      */
-    public function __construct($includeCustomsDeclarations = null, \ColissimoPostage\StructType\Contents $contents = null, $importersReference = null, $importersContact = null, $officeOrigin = null, $comments = null, $invoiceNumber = null, $licenceNumber = null, $certificatNumber = null)
+    public function __construct($includeCustomsDeclarations = null, \ColissimoPostage\StructType\Contents $contents = null, $importersReference = null, $importersContact = null, $officeOrigin = null, $comments = null, $invoiceNumber = null, $licenceNumber = null, $certificatNumber = null, \ColissimoPostage\StructType\ImporterAddress $importerAddress = null)
     {
         $this
             ->setIncludeCustomsDeclarations($includeCustomsDeclarations)
@@ -106,7 +115,8 @@ class CustomsDeclarations extends AbstractStructBase
             ->setComments($comments)
             ->setInvoiceNumber($invoiceNumber)
             ->setLicenceNumber($licenceNumber)
-            ->setCertificatNumber($certificatNumber);
+            ->setCertificatNumber($certificatNumber)
+            ->setImporterAddress($importerAddress);
     }
     /**
      * Get includeCustomsDeclarations value
@@ -296,6 +306,24 @@ class CustomsDeclarations extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($certificatNumber)), __LINE__);
         }
         $this->certificatNumber = $certificatNumber;
+        return $this;
+    }
+    /**
+     * Get importerAddress value
+     * @return \ColissimoPostage\StructType\ImporterAddress|null
+     */
+    public function getImporterAddress()
+    {
+        return $this->importerAddress;
+    }
+    /**
+     * Set importerAddress value
+     * @param \ColissimoPostage\StructType\ImporterAddress $importerAddress
+     * @return \ColissimoPostage\StructType\CustomsDeclarations
+     */
+    public function setImporterAddress(\ColissimoPostage\StructType\ImporterAddress $importerAddress = null)
+    {
+        $this->importerAddress = $importerAddress;
         return $this;
     }
     /**

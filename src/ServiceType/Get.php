@@ -12,6 +12,25 @@ use \SoapClient\SoapClientBase;
 class Get extends SoapClientBase
 {
     /**
+     * Method to call the operation originally named getBordereauByNumber
+     * @uses SoapClientBase::getSoapClient()
+     * @uses SoapClientBase::setResult()
+     * @uses SoapClientBase::getResult()
+     * @uses SoapClientBase::saveLastError()
+     * @param \ColissimoPostage\StructType\GetBordereauByNumber $parameters
+     * @return \ColissimoPostage\StructType\GetBordereauByNumberResponse|bool
+     */
+    public function getBordereauByNumber(\ColissimoPostage\StructType\GetBordereauByNumber $parameters)
+    {
+        try {
+            $this->setResult(self::getSoapClient()->getBordereauByNumber($parameters));
+            return $this->getResult();
+        } catch (\SoapFault $soapFault) {
+            $this->saveLastError(__METHOD__, $soapFault);
+            return false;
+        }
+    }
+    /**
      * Method to call the operation originally named getListMailBoxPickingDates
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
@@ -52,7 +71,7 @@ class Get extends SoapClientBase
     /**
      * Returns the result
      * @see SoapClientBase::getResult()
-     * @return \ColissimoPostage\StructType\GetListMailBoxPickingDatesResponse|\ColissimoPostage\StructType\GetProductInterResponse
+     * @return \ColissimoPostage\StructType\GetBordereauByNumberResponse|\ColissimoPostage\StructType\GetListMailBoxPickingDatesResponse|\ColissimoPostage\StructType\GetProductInterResponse
      */
     public function getResult()
     {

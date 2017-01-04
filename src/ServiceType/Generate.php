@@ -31,9 +31,28 @@ class Generate extends SoapClientBase
         }
     }
     /**
+     * Method to call the operation originally named generateBordereauByParcelsNumbers
+     * @uses SoapClientBase::getSoapClient()
+     * @uses SoapClientBase::setResult()
+     * @uses SoapClientBase::getResult()
+     * @uses SoapClientBase::saveLastError()
+     * @param \ColissimoPostage\StructType\GenerateBordereauByParcelsNumbers $parameters
+     * @return \ColissimoPostage\StructType\GenerateBordereauByParcelsNumbersResponse|bool
+     */
+    public function generateBordereauByParcelsNumbers(\ColissimoPostage\StructType\GenerateBordereauByParcelsNumbers $parameters)
+    {
+        try {
+            $this->setResult(self::getSoapClient()->generateBordereauByParcelsNumbers($parameters));
+            return $this->getResult();
+        } catch (\SoapFault $soapFault) {
+            $this->saveLastError(__METHOD__, $soapFault);
+            return false;
+        }
+    }
+    /**
      * Returns the result
      * @see SoapClientBase::getResult()
-     * @return \ColissimoPostage\StructType\GenerateLabelResponse
+     * @return \ColissimoPostage\StructType\GenerateBordereauByParcelsNumbersResponse|\ColissimoPostage\StructType\GenerateLabelResponse
      */
     public function getResult()
     {
