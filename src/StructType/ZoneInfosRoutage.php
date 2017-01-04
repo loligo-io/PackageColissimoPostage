@@ -47,6 +47,13 @@ class ZoneInfosRoutage extends AbstractStructBase
      */
     public $identificationDestination2;
     /**
+     * The MSort
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var string
+     */
+    public $MSort;
+    /**
      * The numberVersionWS
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
@@ -109,6 +116,7 @@ class ZoneInfosRoutage extends AbstractStructBase
      * @uses ZoneInfosRoutage::setHourPrinting()
      * @uses ZoneInfosRoutage::setIdentificationDestination1()
      * @uses ZoneInfosRoutage::setIdentificationDestination2()
+     * @uses ZoneInfosRoutage::setMSort()
      * @uses ZoneInfosRoutage::setNumberVersionWS()
      * @uses ZoneInfosRoutage::setRoutingVersion()
      * @uses ZoneInfosRoutage::setServiceMark()
@@ -122,6 +130,7 @@ class ZoneInfosRoutage extends AbstractStructBase
      * @param string $hourPrinting
      * @param string $identificationDestination1
      * @param string $identificationDestination2
+     * @param string $mSort
      * @param string $numberVersionWS
      * @param string $routingVersion
      * @param string $serviceMark
@@ -131,7 +140,7 @@ class ZoneInfosRoutage extends AbstractStructBase
      * @param string $typeServiceLivraison
      * @param string $rDepot
      */
-    public function __construct($controlKeyTrackingNumber = null, $datePrinting = null, $hourPrinting = null, $identificationDestination1 = null, $identificationDestination2 = null, $numberVersionWS = null, $routingVersion = null, $serviceMark = null, $sortDest = null, $sortOrigin = null, $trackingNumberRouting = null, $typeServiceLivraison = null, $rDepot = null)
+    public function __construct($controlKeyTrackingNumber = null, $datePrinting = null, $hourPrinting = null, $identificationDestination1 = null, $identificationDestination2 = null, $mSort = null, $numberVersionWS = null, $routingVersion = null, $serviceMark = null, $sortDest = null, $sortOrigin = null, $trackingNumberRouting = null, $typeServiceLivraison = null, $rDepot = null)
     {
         $this
             ->setControlKeyTrackingNumber($controlKeyTrackingNumber)
@@ -139,6 +148,7 @@ class ZoneInfosRoutage extends AbstractStructBase
             ->setHourPrinting($hourPrinting)
             ->setIdentificationDestination1($identificationDestination1)
             ->setIdentificationDestination2($identificationDestination2)
+            ->setMSort($mSort)
             ->setNumberVersionWS($numberVersionWS)
             ->setRoutingVersion($routingVersion)
             ->setServiceMark($serviceMark)
@@ -256,6 +266,28 @@ class ZoneInfosRoutage extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($identificationDestination2)), __LINE__);
         }
         $this->identificationDestination2 = $identificationDestination2;
+        return $this;
+    }
+    /**
+     * Get MSort value
+     * @return string|null
+     */
+    public function getMSort()
+    {
+        return $this->MSort;
+    }
+    /**
+     * Set MSort value
+     * @param string $mSort
+     * @return \ColissimoPostage\StructType\ZoneInfosRoutage
+     */
+    public function setMSort($mSort = null)
+    {
+        // validation for constraint: string
+        if (!is_null($mSort) && !is_string($mSort)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mSort)), __LINE__);
+        }
+        $this->MSort = $mSort;
         return $this;
     }
     /**

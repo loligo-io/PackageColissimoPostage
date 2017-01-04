@@ -16,7 +16,7 @@ class XmlResponse extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - expectedContentTypes: application/octet-stream
      * - minOccurs: 0
-     * @var base64Binary
+     * @var string
      */
     public $cn23;
     /**
@@ -127,6 +127,13 @@ class XmlResponse extends AbstractStructBase
      */
     public $sitePCH;
     /**
+     * The swissLabel
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \ColissimoPostage\StructType\SwissLabel
+     */
+    public $swissLabel;
+    /**
      * The zoneRouting
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
@@ -151,8 +158,9 @@ class XmlResponse extends AbstractStructBase
      * @uses XmlResponse::setRouting()
      * @uses XmlResponse::setSender()
      * @uses XmlResponse::setSitePCH()
+     * @uses XmlResponse::setSwissLabel()
      * @uses XmlResponse::setZoneRouting()
-     * @param base64Binary $cn23
+     * @param string $cn23
      * @param \ColissimoPostage\StructType\Addressee $addressee
      * @param string $barCodeCityssimo
      * @param string $barCodePCH
@@ -168,9 +176,10 @@ class XmlResponse extends AbstractStructBase
      * @param \ColissimoPostage\StructType\Routing $routing
      * @param \ColissimoPostage\StructType\Sender $sender
      * @param \ColissimoPostage\StructType\Site $sitePCH
+     * @param \ColissimoPostage\StructType\SwissLabel $swissLabel
      * @param \ColissimoPostage\StructType\ZoneRouting $zoneRouting
      */
-    public function __construct(base64Binary $cn23 = null, \ColissimoPostage\StructType\Addressee $addressee = null, $barCodeCityssimo = null, $barCodePCH = null, $barCodeRouting = null, \ColissimoPostage\StructType\BelgiumLabel $belgiumLabel = null, $contractNumber = null, array $elementVisual = array(), $numberPCH = null, $numberRouting = null, $parcelNumber = null, $parcelNumberPartner = null, \ColissimoPostage\StructType\PickupLocation $pickupLocation = null, \ColissimoPostage\StructType\Routing $routing = null, \ColissimoPostage\StructType\Sender $sender = null, \ColissimoPostage\StructType\Site $sitePCH = null, \ColissimoPostage\StructType\ZoneRouting $zoneRouting = null)
+    public function __construct($cn23 = null, \ColissimoPostage\StructType\Addressee $addressee = null, $barCodeCityssimo = null, $barCodePCH = null, $barCodeRouting = null, \ColissimoPostage\StructType\BelgiumLabel $belgiumLabel = null, $contractNumber = null, array $elementVisual = array(), $numberPCH = null, $numberRouting = null, $parcelNumber = null, $parcelNumberPartner = null, \ColissimoPostage\StructType\PickupLocation $pickupLocation = null, \ColissimoPostage\StructType\Routing $routing = null, \ColissimoPostage\StructType\Sender $sender = null, \ColissimoPostage\StructType\Site $sitePCH = null, \ColissimoPostage\StructType\SwissLabel $swissLabel = null, \ColissimoPostage\StructType\ZoneRouting $zoneRouting = null)
     {
         $this
             ->setCn23($cn23)
@@ -189,11 +198,12 @@ class XmlResponse extends AbstractStructBase
             ->setRouting($routing)
             ->setSender($sender)
             ->setSitePCH($sitePCH)
+            ->setSwissLabel($swissLabel)
             ->setZoneRouting($zoneRouting);
     }
     /**
      * Get cn23 value
-     * @return base64Binary|null
+     * @return string|null
      */
     public function getCn23()
     {
@@ -201,11 +211,15 @@ class XmlResponse extends AbstractStructBase
     }
     /**
      * Set cn23 value
-     * @param base64Binary $cn23
+     * @param string $cn23
      * @return \ColissimoPostage\StructType\XmlResponse
      */
-    public function setCn23(base64Binary $cn23 = null)
+    public function setCn23($cn23 = null)
     {
+        // validation for constraint: string
+        if (!is_null($cn23) && !is_string($cn23)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($cn23)), __LINE__);
+        }
         $this->cn23 = $cn23;
         return $this;
     }
@@ -540,6 +554,24 @@ class XmlResponse extends AbstractStructBase
     public function setSitePCH(\ColissimoPostage\StructType\Site $sitePCH = null)
     {
         $this->sitePCH = $sitePCH;
+        return $this;
+    }
+    /**
+     * Get swissLabel value
+     * @return \ColissimoPostage\StructType\SwissLabel|null
+     */
+    public function getSwissLabel()
+    {
+        return $this->swissLabel;
+    }
+    /**
+     * Set swissLabel value
+     * @param \ColissimoPostage\StructType\SwissLabel $swissLabel
+     * @return \ColissimoPostage\StructType\XmlResponse
+     */
+    public function setSwissLabel(\ColissimoPostage\StructType\SwissLabel $swissLabel = null)
+    {
+        $this->swissLabel = $swissLabel;
         return $this;
     }
     /**

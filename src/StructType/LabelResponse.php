@@ -16,7 +16,7 @@ class LabelResponse extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - expectedContentTypes: application/octet-stream
      * - minOccurs: 0
-     * @var base64Binary
+     * @var string
      */
     public $label;
     /**
@@ -24,7 +24,7 @@ class LabelResponse extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - expectedContentTypes: application/octet-stream
      * - minOccurs: 0
-     * @var base64Binary
+     * @var string
      */
     public $cn23;
     /**
@@ -55,13 +55,13 @@ class LabelResponse extends AbstractStructBase
      * @uses LabelResponse::setParcelNumber()
      * @uses LabelResponse::setParcelNumberPartner()
      * @uses LabelResponse::setPdfUrl()
-     * @param base64Binary $label
-     * @param base64Binary $cn23
+     * @param string $label
+     * @param string $cn23
      * @param string $parcelNumber
      * @param string $parcelNumberPartner
      * @param string $pdfUrl
      */
-    public function __construct(base64Binary $label = null, base64Binary $cn23 = null, $parcelNumber = null, $parcelNumberPartner = null, $pdfUrl = null)
+    public function __construct($label = null, $cn23 = null, $parcelNumber = null, $parcelNumberPartner = null, $pdfUrl = null)
     {
         $this
             ->setLabel($label)
@@ -72,7 +72,7 @@ class LabelResponse extends AbstractStructBase
     }
     /**
      * Get label value
-     * @return base64Binary|null
+     * @return string|null
      */
     public function getLabel()
     {
@@ -80,17 +80,21 @@ class LabelResponse extends AbstractStructBase
     }
     /**
      * Set label value
-     * @param base64Binary $label
+     * @param string $label
      * @return \ColissimoPostage\StructType\LabelResponse
      */
-    public function setLabel(base64Binary $label = null)
+    public function setLabel($label = null)
     {
+        // validation for constraint: string
+        if (!is_null($label) && !is_string($label)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($label)), __LINE__);
+        }
         $this->label = $label;
         return $this;
     }
     /**
      * Get cn23 value
-     * @return base64Binary|null
+     * @return string|null
      */
     public function getCn23()
     {
@@ -98,11 +102,15 @@ class LabelResponse extends AbstractStructBase
     }
     /**
      * Set cn23 value
-     * @param base64Binary $cn23
+     * @param string $cn23
      * @return \ColissimoPostage\StructType\LabelResponse
      */
-    public function setCn23(base64Binary $cn23 = null)
+    public function setCn23($cn23 = null)
     {
+        // validation for constraint: string
+        if (!is_null($cn23) && !is_string($cn23)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($cn23)), __LINE__);
+        }
         $this->cn23 = $cn23;
         return $this;
     }

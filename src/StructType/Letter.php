@@ -30,6 +30,8 @@ class Letter extends AbstractStructBase
     public $customsDeclarations;
     /**
      * The sender
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
      * @var \ColissimoPostage\StructType\Sender
      */
     public $sender;
@@ -39,26 +41,36 @@ class Letter extends AbstractStructBase
      */
     public $addressee;
     /**
+     * The codSenderAddress
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \ColissimoPostage\StructType\CodSenderAddress
+     */
+    public $codSenderAddress;
+    /**
      * Constructor method for letter
      * @uses Letter::setService()
      * @uses Letter::setParcel()
      * @uses Letter::setCustomsDeclarations()
      * @uses Letter::setSender()
      * @uses Letter::setAddressee()
+     * @uses Letter::setCodSenderAddress()
      * @param \ColissimoPostage\StructType\Service $service
      * @param \ColissimoPostage\StructType\Parcel $parcel
      * @param \ColissimoPostage\StructType\CustomsDeclarations $customsDeclarations
      * @param \ColissimoPostage\StructType\Sender $sender
      * @param \ColissimoPostage\StructType\Addressee $addressee
+     * @param \ColissimoPostage\StructType\CodSenderAddress $codSenderAddress
      */
-    public function __construct(\ColissimoPostage\StructType\Service $service = null, \ColissimoPostage\StructType\Parcel $parcel = null, \ColissimoPostage\StructType\CustomsDeclarations $customsDeclarations = null, \ColissimoPostage\StructType\Sender $sender = null, \ColissimoPostage\StructType\Addressee $addressee = null)
+    public function __construct(\ColissimoPostage\StructType\Service $service = null, \ColissimoPostage\StructType\Parcel $parcel = null, \ColissimoPostage\StructType\CustomsDeclarations $customsDeclarations = null, \ColissimoPostage\StructType\Sender $sender = null, \ColissimoPostage\StructType\Addressee $addressee = null, \ColissimoPostage\StructType\CodSenderAddress $codSenderAddress = null)
     {
         $this
             ->setService($service)
             ->setParcel($parcel)
             ->setCustomsDeclarations($customsDeclarations)
             ->setSender($sender)
-            ->setAddressee($addressee);
+            ->setAddressee($addressee)
+            ->setCodSenderAddress($codSenderAddress);
     }
     /**
      * Get service value
@@ -148,6 +160,24 @@ class Letter extends AbstractStructBase
     public function setAddressee(\ColissimoPostage\StructType\Addressee $addressee = null)
     {
         $this->addressee = $addressee;
+        return $this;
+    }
+    /**
+     * Get codSenderAddress value
+     * @return \ColissimoPostage\StructType\CodSenderAddress|null
+     */
+    public function getCodSenderAddress()
+    {
+        return $this->codSenderAddress;
+    }
+    /**
+     * Set codSenderAddress value
+     * @param \ColissimoPostage\StructType\CodSenderAddress $codSenderAddress
+     * @return \ColissimoPostage\StructType\Letter
+     */
+    public function setCodSenderAddress(\ColissimoPostage\StructType\CodSenderAddress $codSenderAddress = null)
+    {
+        $this->codSenderAddress = $codSenderAddress;
         return $this;
     }
     /**

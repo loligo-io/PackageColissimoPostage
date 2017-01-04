@@ -68,6 +68,13 @@ class Parcel extends AbstractStructBase
      */
     public $CODAmount;
     /**
+     * The CODCurrency
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var string
+     */
+    public $CODCurrency;
+    /**
      * The returnReceipt
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
@@ -105,6 +112,7 @@ class Parcel extends AbstractStructBase
      * @uses Parcel::setNonMachinable()
      * @uses Parcel::setCOD()
      * @uses Parcel::setCODAmount()
+     * @uses Parcel::setCODCurrency()
      * @uses Parcel::setReturnReceipt()
      * @uses Parcel::setInstructions()
      * @uses Parcel::setPickupLocationId()
@@ -117,12 +125,13 @@ class Parcel extends AbstractStructBase
      * @param bool $nonMachinable
      * @param bool $cOD
      * @param int $cODAmount
+     * @param string $cODCurrency
      * @param bool $returnReceipt
      * @param string $instructions
      * @param string $pickupLocationId
      * @param bool $ftd
      */
-    public function __construct($parcelNumber = null, $insuranceAmount = null, $insuranceValue = null, $recommendationLevel = null, $weight = null, $nonMachinable = null, $cOD = null, $cODAmount = null, $returnReceipt = null, $instructions = null, $pickupLocationId = null, $ftd = null)
+    public function __construct($parcelNumber = null, $insuranceAmount = null, $insuranceValue = null, $recommendationLevel = null, $weight = null, $nonMachinable = null, $cOD = null, $cODAmount = null, $cODCurrency = null, $returnReceipt = null, $instructions = null, $pickupLocationId = null, $ftd = null)
     {
         $this
             ->setParcelNumber($parcelNumber)
@@ -133,6 +142,7 @@ class Parcel extends AbstractStructBase
             ->setNonMachinable($nonMachinable)
             ->setCOD($cOD)
             ->setCODAmount($cODAmount)
+            ->setCODCurrency($cODCurrency)
             ->setReturnReceipt($returnReceipt)
             ->setInstructions($instructions)
             ->setPickupLocationId($pickupLocationId)
@@ -300,6 +310,28 @@ class Parcel extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($cODAmount)), __LINE__);
         }
         $this->CODAmount = $cODAmount;
+        return $this;
+    }
+    /**
+     * Get CODCurrency value
+     * @return string|null
+     */
+    public function getCODCurrency()
+    {
+        return $this->CODCurrency;
+    }
+    /**
+     * Set CODCurrency value
+     * @param string $cODCurrency
+     * @return \ColissimoPostage\StructType\Parcel
+     */
+    public function setCODCurrency($cODCurrency = null)
+    {
+        // validation for constraint: string
+        if (!is_null($cODCurrency) && !is_string($cODCurrency)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($cODCurrency)), __LINE__);
+        }
+        $this->CODCurrency = $cODCurrency;
         return $this;
     }
     /**
