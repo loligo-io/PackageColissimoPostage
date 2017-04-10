@@ -95,6 +95,10 @@ class SwissLabel extends AbstractStructBase
      */
     public function setSignatureOption($signatureOption = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($signatureOption) && !is_bool($signatureOption)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($signatureOption)), __LINE__);
+        }
         $this->signatureOption = $signatureOption;
         return $this;
     }

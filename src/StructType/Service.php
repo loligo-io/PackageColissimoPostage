@@ -193,6 +193,10 @@ class Service extends AbstractStructBase
      */
     public function setMailBoxPicking($mailBoxPicking = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($mailBoxPicking) && !is_bool($mailBoxPicking)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($mailBoxPicking)), __LINE__);
+        }
         $this->mailBoxPicking = $mailBoxPicking;
         return $this;
     }
