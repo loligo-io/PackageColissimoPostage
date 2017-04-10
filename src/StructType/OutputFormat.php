@@ -159,6 +159,10 @@ class OutputFormat extends AbstractStructBase
      */
     public function setDematerialized($dematerialized = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($dematerialized) && !is_bool($dematerialized)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($dematerialized)), __LINE__);
+        }
         $this->dematerialized = $dematerialized;
         return $this;
     }
@@ -199,6 +203,10 @@ class OutputFormat extends AbstractStructBase
      */
     public function setPrintCODDocument($printCODDocument = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($printCODDocument) && !is_bool($printCODDocument)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($printCODDocument)), __LINE__);
+        }
         $this->printCODDocument = $printCODDocument;
         return $this;
     }

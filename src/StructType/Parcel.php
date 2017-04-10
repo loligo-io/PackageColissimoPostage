@@ -269,6 +269,10 @@ class Parcel extends AbstractStructBase
      */
     public function setNonMachinable($nonMachinable = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($nonMachinable) && !is_bool($nonMachinable)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($nonMachinable)), __LINE__);
+        }
         $this->nonMachinable = $nonMachinable;
         return $this;
     }
@@ -287,6 +291,10 @@ class Parcel extends AbstractStructBase
      */
     public function setCOD($cOD = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($cOD) && !is_bool($cOD)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($cOD)), __LINE__);
+        }
         $this->COD = $cOD;
         return $this;
     }
@@ -349,6 +357,10 @@ class Parcel extends AbstractStructBase
      */
     public function setReturnReceipt($returnReceipt = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($returnReceipt) && !is_bool($returnReceipt)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($returnReceipt)), __LINE__);
+        }
         $this->returnReceipt = $returnReceipt;
         return $this;
     }
@@ -411,6 +423,10 @@ class Parcel extends AbstractStructBase
      */
     public function setFtd($ftd = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($ftd) && !is_bool($ftd)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($ftd)), __LINE__);
+        }
         $this->ftd = $ftd;
         return $this;
     }

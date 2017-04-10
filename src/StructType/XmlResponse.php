@@ -55,6 +55,13 @@ class XmlResponse extends AbstractStructBase
      */
     public $belgiumLabel;
     /**
+     * The cabAztec
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var string
+     */
+    public $cabAztec;
+    /**
      * The contractNumber
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
@@ -148,6 +155,7 @@ class XmlResponse extends AbstractStructBase
      * @uses XmlResponse::setBarCodePCH()
      * @uses XmlResponse::setBarCodeRouting()
      * @uses XmlResponse::setBelgiumLabel()
+     * @uses XmlResponse::setCabAztec()
      * @uses XmlResponse::setContractNumber()
      * @uses XmlResponse::setElementVisual()
      * @uses XmlResponse::setNumberPCH()
@@ -166,6 +174,7 @@ class XmlResponse extends AbstractStructBase
      * @param string $barCodePCH
      * @param string $barCodeRouting
      * @param \ColissimoPostage\StructType\BelgiumLabel $belgiumLabel
+     * @param string $cabAztec
      * @param string $contractNumber
      * @param \ColissimoPostage\StructType\ElementVisual[] $elementVisual
      * @param string $numberPCH
@@ -179,7 +188,7 @@ class XmlResponse extends AbstractStructBase
      * @param \ColissimoPostage\StructType\SwissLabel $swissLabel
      * @param \ColissimoPostage\StructType\ZoneRouting $zoneRouting
      */
-    public function __construct($cn23 = null, \ColissimoPostage\StructType\Addressee $addressee = null, $barCodeCityssimo = null, $barCodePCH = null, $barCodeRouting = null, \ColissimoPostage\StructType\BelgiumLabel $belgiumLabel = null, $contractNumber = null, array $elementVisual = array(), $numberPCH = null, $numberRouting = null, $parcelNumber = null, $parcelNumberPartner = null, \ColissimoPostage\StructType\PickupLocation $pickupLocation = null, \ColissimoPostage\StructType\Routing $routing = null, \ColissimoPostage\StructType\Sender $sender = null, \ColissimoPostage\StructType\Site $sitePCH = null, \ColissimoPostage\StructType\SwissLabel $swissLabel = null, \ColissimoPostage\StructType\ZoneRouting $zoneRouting = null)
+    public function __construct($cn23 = null, \ColissimoPostage\StructType\Addressee $addressee = null, $barCodeCityssimo = null, $barCodePCH = null, $barCodeRouting = null, \ColissimoPostage\StructType\BelgiumLabel $belgiumLabel = null, $cabAztec = null, $contractNumber = null, array $elementVisual = array(), $numberPCH = null, $numberRouting = null, $parcelNumber = null, $parcelNumberPartner = null, \ColissimoPostage\StructType\PickupLocation $pickupLocation = null, \ColissimoPostage\StructType\Routing $routing = null, \ColissimoPostage\StructType\Sender $sender = null, \ColissimoPostage\StructType\Site $sitePCH = null, \ColissimoPostage\StructType\SwissLabel $swissLabel = null, \ColissimoPostage\StructType\ZoneRouting $zoneRouting = null)
     {
         $this
             ->setCn23($cn23)
@@ -188,6 +197,7 @@ class XmlResponse extends AbstractStructBase
             ->setBarCodePCH($barCodePCH)
             ->setBarCodeRouting($barCodeRouting)
             ->setBelgiumLabel($belgiumLabel)
+            ->setCabAztec($cabAztec)
             ->setContractNumber($contractNumber)
             ->setElementVisual($elementVisual)
             ->setNumberPCH($numberPCH)
@@ -323,6 +333,28 @@ class XmlResponse extends AbstractStructBase
     public function setBelgiumLabel(\ColissimoPostage\StructType\BelgiumLabel $belgiumLabel = null)
     {
         $this->belgiumLabel = $belgiumLabel;
+        return $this;
+    }
+    /**
+     * Get cabAztec value
+     * @return string|null
+     */
+    public function getCabAztec()
+    {
+        return $this->cabAztec;
+    }
+    /**
+     * Set cabAztec value
+     * @param string $cabAztec
+     * @return \ColissimoPostage\StructType\XmlResponse
+     */
+    public function setCabAztec($cabAztec = null)
+    {
+        // validation for constraint: string
+        if (!is_null($cabAztec) && !is_string($cabAztec)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($cabAztec)), __LINE__);
+        }
+        $this->cabAztec = $cabAztec;
         return $this;
     }
     /**

@@ -133,6 +133,10 @@ class CustomsDeclarations extends AbstractStructBase
      */
     public function setIncludeCustomsDeclarations($includeCustomsDeclarations = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($includeCustomsDeclarations) && !is_bool($includeCustomsDeclarations)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($includeCustomsDeclarations)), __LINE__);
+        }
         $this->includeCustomsDeclarations = $includeCustomsDeclarations;
         return $this;
     }

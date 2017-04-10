@@ -183,6 +183,10 @@ class GetProductInterRequestType extends AbstractStructBase
      */
     public function setInsurance($insurance = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($insurance) && !is_bool($insurance)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($insurance)), __LINE__);
+        }
         $this->insurance = $insurance;
         return $this;
     }
@@ -201,6 +205,10 @@ class GetProductInterRequestType extends AbstractStructBase
      */
     public function setNonMachinable($nonMachinable = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($nonMachinable) && !is_bool($nonMachinable)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($nonMachinable)), __LINE__);
+        }
         $this->nonMachinable = $nonMachinable;
         return $this;
     }
@@ -219,6 +227,10 @@ class GetProductInterRequestType extends AbstractStructBase
      */
     public function setReturnReceipt($returnReceipt = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($returnReceipt) && !is_bool($returnReceipt)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($returnReceipt)), __LINE__);
+        }
         $this->returnReceipt = $returnReceipt;
         return $this;
     }

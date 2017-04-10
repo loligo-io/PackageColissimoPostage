@@ -103,6 +103,10 @@ class Addressee extends AbstractStructBase
      */
     public function setCodeBarForReference($codeBarForReference = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($codeBarForReference) && !is_bool($codeBarForReference)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($codeBarForReference)), __LINE__);
+        }
         $this->codeBarForReference = $codeBarForReference;
         return $this;
     }

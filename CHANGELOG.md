@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 0.2.0
+- Update generated classes using latest generator version and latest WSDL version
+
 ## 0.1.0
 - Update generated classes using latest generator version and latest WSDL version (base64Binary handling, composer-settings option), new structs/methods and removes structs from WS
 
