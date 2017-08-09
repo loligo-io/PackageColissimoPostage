@@ -37,20 +37,30 @@ class Contents extends AbstractStructBase
      */
     public $original;
     /**
+     * The explanations
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var string
+     */
+    public $explanations;
+    /**
      * Constructor method for contents
      * @uses Contents::setArticle()
      * @uses Contents::setCategory()
      * @uses Contents::setOriginal()
+     * @uses Contents::setExplanations()
      * @param \ColissimoPostage\StructType\Article[] $article
      * @param \ColissimoPostage\StructType\Category $category
      * @param \ColissimoPostage\StructType\Original[] $original
+     * @param string $explanations
      */
-    public function __construct(array $article = array(), \ColissimoPostage\StructType\Category $category = null, array $original = array())
+    public function __construct(array $article = array(), \ColissimoPostage\StructType\Category $category = null, array $original = array(), $explanations = null)
     {
         $this
             ->setArticle($article)
             ->setCategory($category)
-            ->setOriginal($original);
+            ->setOriginal($original)
+            ->setExplanations($explanations);
     }
     /**
      * Get article value
@@ -166,6 +176,28 @@ class Contents extends AbstractStructBase
             throw new \InvalidArgumentException(sprintf('The original property can only contain items of \ColissimoPostage\StructType\Original, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
         }
         $this->original[] = $item;
+        return $this;
+    }
+    /**
+     * Get explanations value
+     * @return string|null
+     */
+    public function getExplanations()
+    {
+        return $this->explanations;
+    }
+    /**
+     * Set explanations value
+     * @param string $explanations
+     * @return \ColissimoPostage\StructType\Contents
+     */
+    public function setExplanations($explanations = null)
+    {
+        // validation for constraint: string
+        if (!is_null($explanations) && !is_string($explanations)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($explanations)), __LINE__);
+        }
+        $this->explanations = $explanations;
         return $this;
     }
     /**
