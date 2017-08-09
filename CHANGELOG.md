@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.0.0
+- Update generated classes following WSDL updates
+
 ## 0.2.0
 - Update generated classes using latest generator version and latest WSDL version
 
