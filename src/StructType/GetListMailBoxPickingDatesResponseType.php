@@ -13,14 +13,14 @@ class GetListMailBoxPickingDatesResponseType extends BaseResponse
 {
     /**
      * The mailBoxPickingDateMaxHour
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $mailBoxPickingDateMaxHour;
     /**
      * The mailBoxPickingDates
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * - nillable: true
@@ -29,7 +29,7 @@ class GetListMailBoxPickingDatesResponseType extends BaseResponse
     public $mailBoxPickingDates;
     /**
      * The validityTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -67,7 +67,7 @@ class GetListMailBoxPickingDatesResponseType extends BaseResponse
     {
         // validation for constraint: string
         if (!is_null($mailBoxPickingDateMaxHour) && !is_string($mailBoxPickingDateMaxHour)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mailBoxPickingDateMaxHour)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailBoxPickingDateMaxHour, true), gettype($mailBoxPickingDateMaxHour)), __LINE__);
         }
         $this->mailBoxPickingDateMaxHour = $mailBoxPickingDateMaxHour;
         return $this;
@@ -84,6 +84,28 @@ class GetListMailBoxPickingDatesResponseType extends BaseResponse
         return isset($this->mailBoxPickingDates) ? $this->mailBoxPickingDates : null;
     }
     /**
+     * This method is responsible for validating the values passed to the setMailBoxPickingDates method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setMailBoxPickingDates method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateMailBoxPickingDatesForArrayConstraintsFromSetMailBoxPickingDates(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $getListMailBoxPickingDatesResponseTypeMailBoxPickingDatesItem) {
+            // validation for constraint: itemType
+            if (!is_string($getListMailBoxPickingDatesResponseTypeMailBoxPickingDatesItem)) {
+                $invalidValues[] = is_object($getListMailBoxPickingDatesResponseTypeMailBoxPickingDatesItem) ? get_class($getListMailBoxPickingDatesResponseTypeMailBoxPickingDatesItem) : sprintf('%s(%s)', gettype($getListMailBoxPickingDatesResponseTypeMailBoxPickingDatesItem), var_export($getListMailBoxPickingDatesResponseTypeMailBoxPickingDatesItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The mailBoxPickingDates property can only contain items of type dateTime, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set mailBoxPickingDates value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
@@ -93,11 +115,9 @@ class GetListMailBoxPickingDatesResponseType extends BaseResponse
      */
     public function setMailBoxPickingDates(array $mailBoxPickingDates = array())
     {
-        foreach ($mailBoxPickingDates as $getListMailBoxPickingDatesResponseTypeMailBoxPickingDatesItem) {
-            // validation for constraint: itemType
-            if (!is_string($getListMailBoxPickingDatesResponseTypeMailBoxPickingDatesItem)) {
-                throw new \InvalidArgumentException(sprintf('The mailBoxPickingDates property can only contain items of dateTime, "%s" given', is_object($getListMailBoxPickingDatesResponseTypeMailBoxPickingDatesItem) ? get_class($getListMailBoxPickingDatesResponseTypeMailBoxPickingDatesItem) : gettype($getListMailBoxPickingDatesResponseTypeMailBoxPickingDatesItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($mailBoxPickingDatesArrayErrorMessage = self::validateMailBoxPickingDatesForArrayConstraintsFromSetMailBoxPickingDates($mailBoxPickingDates))) {
+            throw new \InvalidArgumentException($mailBoxPickingDatesArrayErrorMessage, __LINE__);
         }
         if (is_null($mailBoxPickingDates) || (is_array($mailBoxPickingDates) && empty($mailBoxPickingDates))) {
             unset($this->mailBoxPickingDates);
@@ -116,7 +136,7 @@ class GetListMailBoxPickingDatesResponseType extends BaseResponse
     {
         // validation for constraint: itemType
         if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The mailBoxPickingDates property can only contain items of dateTime, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The mailBoxPickingDates property can only contain items of type dateTime, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->mailBoxPickingDates[] = $item;
         return $this;
@@ -138,29 +158,9 @@ class GetListMailBoxPickingDatesResponseType extends BaseResponse
     {
         // validation for constraint: string
         if (!is_null($validityTime) && !is_string($validityTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($validityTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($validityTime, true), gettype($validityTime)), __LINE__);
         }
         $this->validityTime = $validityTime;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \ColissimoPostage\StructType\GetListMailBoxPickingDatesResponseType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

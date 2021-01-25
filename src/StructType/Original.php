@@ -13,28 +13,28 @@ class Original extends AbstractStructBase
 {
     /**
      * The originalIdent
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $originalIdent;
     /**
      * The originalInvoiceNumber
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $originalInvoiceNumber;
     /**
      * The originalInvoiceDate
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $originalInvoiceDate;
     /**
      * The originalParcelNumber
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -75,7 +75,7 @@ class Original extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($originalIdent) && !is_string($originalIdent)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($originalIdent)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($originalIdent, true), gettype($originalIdent)), __LINE__);
         }
         $this->originalIdent = $originalIdent;
         return $this;
@@ -97,7 +97,7 @@ class Original extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($originalInvoiceNumber) && !is_string($originalInvoiceNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($originalInvoiceNumber)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($originalInvoiceNumber, true), gettype($originalInvoiceNumber)), __LINE__);
         }
         $this->originalInvoiceNumber = $originalInvoiceNumber;
         return $this;
@@ -119,7 +119,7 @@ class Original extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($originalInvoiceDate) && !is_string($originalInvoiceDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($originalInvoiceDate)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($originalInvoiceDate, true), gettype($originalInvoiceDate)), __LINE__);
         }
         $this->originalInvoiceDate = $originalInvoiceDate;
         return $this;
@@ -141,29 +141,9 @@ class Original extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($originalParcelNumber) && !is_string($originalParcelNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($originalParcelNumber)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($originalParcelNumber, true), gettype($originalParcelNumber)), __LINE__);
         }
         $this->originalParcelNumber = $originalParcelNumber;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \ColissimoPostage\StructType\Original
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -13,14 +13,14 @@ class Bordereau extends AbstractStructBase
 {
     /**
      * The bordereauDataHandler
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $bordereauDataHandler;
     /**
      * The bordereauHeader
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \ColissimoPostage\StructType\BordereauHeader
      */
@@ -55,7 +55,7 @@ class Bordereau extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($bordereauDataHandler) && !is_string($bordereauDataHandler)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($bordereauDataHandler)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($bordereauDataHandler, true), gettype($bordereauDataHandler)), __LINE__);
         }
         $this->bordereauDataHandler = $bordereauDataHandler;
         return $this;
@@ -77,25 +77,5 @@ class Bordereau extends AbstractStructBase
     {
         $this->bordereauHeader = $bordereauHeader;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \ColissimoPostage\StructType\Bordereau
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

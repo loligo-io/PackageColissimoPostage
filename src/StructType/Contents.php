@@ -13,7 +13,7 @@ class Contents extends AbstractStructBase
 {
     /**
      * The article
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * - nillable: true
@@ -22,14 +22,14 @@ class Contents extends AbstractStructBase
     public $article;
     /**
      * The category
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \ColissimoPostage\StructType\Category
      */
     public $category;
     /**
      * The original
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * - nillable: true
@@ -38,7 +38,7 @@ class Contents extends AbstractStructBase
     public $original;
     /**
      * The explanations
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -74,6 +74,28 @@ class Contents extends AbstractStructBase
         return isset($this->article) ? $this->article : null;
     }
     /**
+     * This method is responsible for validating the values passed to the setArticle method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setArticle method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateArticleForArrayConstraintsFromSetArticle(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $contentsArticleItem) {
+            // validation for constraint: itemType
+            if (!$contentsArticleItem instanceof \ColissimoPostage\StructType\Article) {
+                $invalidValues[] = is_object($contentsArticleItem) ? get_class($contentsArticleItem) : sprintf('%s(%s)', gettype($contentsArticleItem), var_export($contentsArticleItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The article property can only contain items of type \ColissimoPostage\StructType\Article, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set article value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
@@ -83,11 +105,9 @@ class Contents extends AbstractStructBase
      */
     public function setArticle(array $article = array())
     {
-        foreach ($article as $contentsArticleItem) {
-            // validation for constraint: itemType
-            if (!$contentsArticleItem instanceof \ColissimoPostage\StructType\Article) {
-                throw new \InvalidArgumentException(sprintf('The article property can only contain items of \ColissimoPostage\StructType\Article, "%s" given', is_object($contentsArticleItem) ? get_class($contentsArticleItem) : gettype($contentsArticleItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($articleArrayErrorMessage = self::validateArticleForArrayConstraintsFromSetArticle($article))) {
+            throw new \InvalidArgumentException($articleArrayErrorMessage, __LINE__);
         }
         if (is_null($article) || (is_array($article) && empty($article))) {
             unset($this->article);
@@ -106,7 +126,7 @@ class Contents extends AbstractStructBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \ColissimoPostage\StructType\Article) {
-            throw new \InvalidArgumentException(sprintf('The article property can only contain items of \ColissimoPostage\StructType\Article, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The article property can only contain items of type \ColissimoPostage\StructType\Article, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->article[] = $item;
         return $this;
@@ -141,6 +161,28 @@ class Contents extends AbstractStructBase
         return isset($this->original) ? $this->original : null;
     }
     /**
+     * This method is responsible for validating the values passed to the setOriginal method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setOriginal method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateOriginalForArrayConstraintsFromSetOriginal(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $contentsOriginalItem) {
+            // validation for constraint: itemType
+            if (!$contentsOriginalItem instanceof \ColissimoPostage\StructType\Original) {
+                $invalidValues[] = is_object($contentsOriginalItem) ? get_class($contentsOriginalItem) : sprintf('%s(%s)', gettype($contentsOriginalItem), var_export($contentsOriginalItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The original property can only contain items of type \ColissimoPostage\StructType\Original, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set original value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
@@ -150,11 +192,9 @@ class Contents extends AbstractStructBase
      */
     public function setOriginal(array $original = array())
     {
-        foreach ($original as $contentsOriginalItem) {
-            // validation for constraint: itemType
-            if (!$contentsOriginalItem instanceof \ColissimoPostage\StructType\Original) {
-                throw new \InvalidArgumentException(sprintf('The original property can only contain items of \ColissimoPostage\StructType\Original, "%s" given', is_object($contentsOriginalItem) ? get_class($contentsOriginalItem) : gettype($contentsOriginalItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($originalArrayErrorMessage = self::validateOriginalForArrayConstraintsFromSetOriginal($original))) {
+            throw new \InvalidArgumentException($originalArrayErrorMessage, __LINE__);
         }
         if (is_null($original) || (is_array($original) && empty($original))) {
             unset($this->original);
@@ -173,7 +213,7 @@ class Contents extends AbstractStructBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \ColissimoPostage\StructType\Original) {
-            throw new \InvalidArgumentException(sprintf('The original property can only contain items of \ColissimoPostage\StructType\Original, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The original property can only contain items of type \ColissimoPostage\StructType\Original, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->original[] = $item;
         return $this;
@@ -195,29 +235,9 @@ class Contents extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($explanations) && !is_string($explanations)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($explanations)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($explanations, true), gettype($explanations)), __LINE__);
         }
         $this->explanations = $explanations;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \ColissimoPostage\StructType\Contents
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

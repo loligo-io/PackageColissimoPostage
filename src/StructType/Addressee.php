@@ -13,28 +13,28 @@ class Addressee extends AbstractStructBase
 {
     /**
      * The addresseeParcelRef
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $addresseeParcelRef;
     /**
      * The codeBarForReference
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $codeBarForReference;
     /**
      * The serviceInfo
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $serviceInfo;
     /**
      * The promotionCode
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -83,7 +83,7 @@ class Addressee extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($addresseeParcelRef) && !is_string($addresseeParcelRef)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($addresseeParcelRef)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($addresseeParcelRef, true), gettype($addresseeParcelRef)), __LINE__);
         }
         $this->addresseeParcelRef = $addresseeParcelRef;
         return $this;
@@ -105,7 +105,7 @@ class Addressee extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($codeBarForReference) && !is_bool($codeBarForReference)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($codeBarForReference)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($codeBarForReference, true), gettype($codeBarForReference)), __LINE__);
         }
         $this->codeBarForReference = $codeBarForReference;
         return $this;
@@ -127,7 +127,7 @@ class Addressee extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($serviceInfo) && !is_string($serviceInfo)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($serviceInfo)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($serviceInfo, true), gettype($serviceInfo)), __LINE__);
         }
         $this->serviceInfo = $serviceInfo;
         return $this;
@@ -149,7 +149,7 @@ class Addressee extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($promotionCode) && !is_string($promotionCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($promotionCode)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($promotionCode, true), gettype($promotionCode)), __LINE__);
         }
         $this->promotionCode = $promotionCode;
         return $this;
@@ -171,25 +171,5 @@ class Addressee extends AbstractStructBase
     {
         $this->address = $address;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \ColissimoPostage\StructType\Addressee
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

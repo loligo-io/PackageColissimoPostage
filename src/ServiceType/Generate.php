@@ -23,7 +23,9 @@ class Generate extends SoapClientBase
     public function generateLabel(\ColissimoPostage\StructType\GenerateLabel $parameters)
     {
         try {
-            $this->setResult(self::getSoapClient()->generateLabel($parameters));
+            $this->setResult($this->getSoapClient()->__soapCall('generateLabel', array(
+                $parameters,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -42,7 +44,9 @@ class Generate extends SoapClientBase
     public function generateBordereauByParcelsNumbers(\ColissimoPostage\StructType\GenerateBordereauByParcelsNumbers $parameters)
     {
         try {
-            $this->setResult(self::getSoapClient()->generateBordereauByParcelsNumbers($parameters));
+            $this->setResult($this->getSoapClient()->__soapCall('generateBordereauByParcelsNumbers', array(
+                $parameters,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -57,13 +61,5 @@ class Generate extends SoapClientBase
     public function getResult()
     {
         return parent::getResult();
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

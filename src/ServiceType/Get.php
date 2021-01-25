@@ -12,25 +12,6 @@ use \SoapClient\SoapClientBase;
 class Get extends SoapClientBase
 {
     /**
-     * Method to call the operation originally named getBordereauByNumber
-     * @uses SoapClientBase::getSoapClient()
-     * @uses SoapClientBase::setResult()
-     * @uses SoapClientBase::getResult()
-     * @uses SoapClientBase::saveLastError()
-     * @param \ColissimoPostage\StructType\GetBordereauByNumber $parameters
-     * @return \ColissimoPostage\StructType\GetBordereauByNumberResponse|bool
-     */
-    public function getBordereauByNumber(\ColissimoPostage\StructType\GetBordereauByNumber $parameters)
-    {
-        try {
-            $this->setResult(self::getSoapClient()->getBordereauByNumber($parameters));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
-            $this->saveLastError(__METHOD__, $soapFault);
-            return false;
-        }
-    }
-    /**
      * Method to call the operation originally named getListMailBoxPickingDates
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
@@ -42,7 +23,9 @@ class Get extends SoapClientBase
     public function getListMailBoxPickingDates(\ColissimoPostage\StructType\GetListMailBoxPickingDates $parameters)
     {
         try {
-            $this->setResult(self::getSoapClient()->getListMailBoxPickingDates($parameters));
+            $this->setResult($this->getSoapClient()->__soapCall('getListMailBoxPickingDates', array(
+                $parameters,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -61,7 +44,30 @@ class Get extends SoapClientBase
     public function getProductInter(\ColissimoPostage\StructType\GetProductInter $parameters)
     {
         try {
-            $this->setResult(self::getSoapClient()->getProductInter($parameters));
+            $this->setResult($this->getSoapClient()->__soapCall('getProductInter', array(
+                $parameters,
+            ), array(), array(), $this->outputHeaders));
+            return $this->getResult();
+        } catch (\SoapFault $soapFault) {
+            $this->saveLastError(__METHOD__, $soapFault);
+            return false;
+        }
+    }
+    /**
+     * Method to call the operation originally named getBordereauByNumber
+     * @uses SoapClientBase::getSoapClient()
+     * @uses SoapClientBase::setResult()
+     * @uses SoapClientBase::getResult()
+     * @uses SoapClientBase::saveLastError()
+     * @param \ColissimoPostage\StructType\GetBordereauByNumber $parameters
+     * @return \ColissimoPostage\StructType\GetBordereauByNumberResponse|bool
+     */
+    public function getBordereauByNumber(\ColissimoPostage\StructType\GetBordereauByNumber $parameters)
+    {
+        try {
+            $this->setResult($this->getSoapClient()->__soapCall('getBordereauByNumber', array(
+                $parameters,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -76,13 +82,5 @@ class Get extends SoapClientBase
     public function getResult()
     {
         return parent::getResult();
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

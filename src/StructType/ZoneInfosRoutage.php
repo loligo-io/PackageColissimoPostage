@@ -13,98 +13,98 @@ class ZoneInfosRoutage extends AbstractStructBase
 {
     /**
      * The controlKeyTrackingNumber
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $controlKeyTrackingNumber;
     /**
      * The datePrinting
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $datePrinting;
     /**
      * The hourPrinting
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $hourPrinting;
     /**
      * The identificationDestination1
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $identificationDestination1;
     /**
      * The identificationDestination2
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $identificationDestination2;
     /**
      * The MSort
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $MSort;
     /**
      * The numberVersionWS
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $numberVersionWS;
     /**
      * The routingVersion
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $routingVersion;
     /**
      * The serviceMark
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $serviceMark;
     /**
      * The sortDest
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $sortDest;
     /**
      * The sortOrigin
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $sortOrigin;
     /**
      * The trackingNumberRouting
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $trackingNumberRouting;
     /**
      * The typeServiceLivraison
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $typeServiceLivraison;
     /**
      * The rDepot
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -175,7 +175,7 @@ class ZoneInfosRoutage extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($controlKeyTrackingNumber) && !is_string($controlKeyTrackingNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($controlKeyTrackingNumber)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($controlKeyTrackingNumber, true), gettype($controlKeyTrackingNumber)), __LINE__);
         }
         $this->controlKeyTrackingNumber = $controlKeyTrackingNumber;
         return $this;
@@ -197,7 +197,7 @@ class ZoneInfosRoutage extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($datePrinting) && !is_string($datePrinting)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($datePrinting)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($datePrinting, true), gettype($datePrinting)), __LINE__);
         }
         $this->datePrinting = $datePrinting;
         return $this;
@@ -219,7 +219,7 @@ class ZoneInfosRoutage extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($hourPrinting) && !is_string($hourPrinting)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($hourPrinting)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($hourPrinting, true), gettype($hourPrinting)), __LINE__);
         }
         $this->hourPrinting = $hourPrinting;
         return $this;
@@ -241,7 +241,7 @@ class ZoneInfosRoutage extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($identificationDestination1) && !is_string($identificationDestination1)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($identificationDestination1)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($identificationDestination1, true), gettype($identificationDestination1)), __LINE__);
         }
         $this->identificationDestination1 = $identificationDestination1;
         return $this;
@@ -263,7 +263,7 @@ class ZoneInfosRoutage extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($identificationDestination2) && !is_string($identificationDestination2)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($identificationDestination2)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($identificationDestination2, true), gettype($identificationDestination2)), __LINE__);
         }
         $this->identificationDestination2 = $identificationDestination2;
         return $this;
@@ -285,7 +285,7 @@ class ZoneInfosRoutage extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($mSort) && !is_string($mSort)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mSort)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mSort, true), gettype($mSort)), __LINE__);
         }
         $this->MSort = $mSort;
         return $this;
@@ -307,7 +307,7 @@ class ZoneInfosRoutage extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($numberVersionWS) && !is_string($numberVersionWS)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($numberVersionWS)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($numberVersionWS, true), gettype($numberVersionWS)), __LINE__);
         }
         $this->numberVersionWS = $numberVersionWS;
         return $this;
@@ -329,7 +329,7 @@ class ZoneInfosRoutage extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($routingVersion) && !is_string($routingVersion)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($routingVersion)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($routingVersion, true), gettype($routingVersion)), __LINE__);
         }
         $this->routingVersion = $routingVersion;
         return $this;
@@ -351,7 +351,7 @@ class ZoneInfosRoutage extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($serviceMark) && !is_string($serviceMark)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($serviceMark)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($serviceMark, true), gettype($serviceMark)), __LINE__);
         }
         $this->serviceMark = $serviceMark;
         return $this;
@@ -373,7 +373,7 @@ class ZoneInfosRoutage extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($sortDest) && !is_string($sortDest)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sortDest)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sortDest, true), gettype($sortDest)), __LINE__);
         }
         $this->sortDest = $sortDest;
         return $this;
@@ -395,7 +395,7 @@ class ZoneInfosRoutage extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($sortOrigin) && !is_string($sortOrigin)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sortOrigin)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sortOrigin, true), gettype($sortOrigin)), __LINE__);
         }
         $this->sortOrigin = $sortOrigin;
         return $this;
@@ -417,7 +417,7 @@ class ZoneInfosRoutage extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($trackingNumberRouting) && !is_string($trackingNumberRouting)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($trackingNumberRouting)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($trackingNumberRouting, true), gettype($trackingNumberRouting)), __LINE__);
         }
         $this->trackingNumberRouting = $trackingNumberRouting;
         return $this;
@@ -439,7 +439,7 @@ class ZoneInfosRoutage extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($typeServiceLivraison) && !is_string($typeServiceLivraison)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($typeServiceLivraison)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($typeServiceLivraison, true), gettype($typeServiceLivraison)), __LINE__);
         }
         $this->typeServiceLivraison = $typeServiceLivraison;
         return $this;
@@ -461,29 +461,9 @@ class ZoneInfosRoutage extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($rDepot) && !is_string($rDepot)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($rDepot)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($rDepot, true), gettype($rDepot)), __LINE__);
         }
         $this->rDepot = $rDepot;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \ColissimoPostage\StructType\ZoneInfosRoutage
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -13,7 +13,7 @@ class XmlResponse extends AbstractStructBase
 {
     /**
      * The cn23
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - expectedContentTypes: application/octet-stream
      * - minOccurs: 0
      * @var string
@@ -21,56 +21,56 @@ class XmlResponse extends AbstractStructBase
     public $cn23;
     /**
      * The addressee
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \ColissimoPostage\StructType\Addressee
      */
     public $addressee;
     /**
      * The barCodeCityssimo
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $barCodeCityssimo;
     /**
      * The barCodePCH
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $barCodePCH;
     /**
      * The barCodeRouting
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $barCodeRouting;
     /**
      * The belgiumLabel
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \ColissimoPostage\StructType\BelgiumLabel
      */
     public $belgiumLabel;
     /**
      * The cabAztec
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $cabAztec;
     /**
      * The contractNumber
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $contractNumber;
     /**
      * The elementVisual
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * - nillable: true
@@ -79,70 +79,70 @@ class XmlResponse extends AbstractStructBase
     public $elementVisual;
     /**
      * The numberPCH
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $numberPCH;
     /**
      * The numberRouting
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $numberRouting;
     /**
      * The parcelNumber
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $parcelNumber;
     /**
      * The parcelNumberPartner
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $parcelNumberPartner;
     /**
      * The pickupLocation
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \ColissimoPostage\StructType\PickupLocation
      */
     public $pickupLocation;
     /**
      * The routing
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \ColissimoPostage\StructType\Routing
      */
     public $routing;
     /**
      * The sender
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \ColissimoPostage\StructType\Sender
      */
     public $sender;
     /**
      * The sitePCH
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \ColissimoPostage\StructType\Site
      */
     public $sitePCH;
     /**
      * The swissLabel
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \ColissimoPostage\StructType\SwissLabel
      */
     public $swissLabel;
     /**
      * The zoneRouting
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \ColissimoPostage\StructType\ZoneRouting
      */
@@ -228,7 +228,7 @@ class XmlResponse extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($cn23) && !is_string($cn23)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($cn23)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($cn23, true), gettype($cn23)), __LINE__);
         }
         $this->cn23 = $cn23;
         return $this;
@@ -268,7 +268,7 @@ class XmlResponse extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($barCodeCityssimo) && !is_string($barCodeCityssimo)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($barCodeCityssimo)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($barCodeCityssimo, true), gettype($barCodeCityssimo)), __LINE__);
         }
         $this->barCodeCityssimo = $barCodeCityssimo;
         return $this;
@@ -290,7 +290,7 @@ class XmlResponse extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($barCodePCH) && !is_string($barCodePCH)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($barCodePCH)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($barCodePCH, true), gettype($barCodePCH)), __LINE__);
         }
         $this->barCodePCH = $barCodePCH;
         return $this;
@@ -312,7 +312,7 @@ class XmlResponse extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($barCodeRouting) && !is_string($barCodeRouting)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($barCodeRouting)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($barCodeRouting, true), gettype($barCodeRouting)), __LINE__);
         }
         $this->barCodeRouting = $barCodeRouting;
         return $this;
@@ -352,7 +352,7 @@ class XmlResponse extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($cabAztec) && !is_string($cabAztec)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($cabAztec)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($cabAztec, true), gettype($cabAztec)), __LINE__);
         }
         $this->cabAztec = $cabAztec;
         return $this;
@@ -374,7 +374,7 @@ class XmlResponse extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($contractNumber) && !is_string($contractNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($contractNumber)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($contractNumber, true), gettype($contractNumber)), __LINE__);
         }
         $this->contractNumber = $contractNumber;
         return $this;
@@ -391,6 +391,28 @@ class XmlResponse extends AbstractStructBase
         return isset($this->elementVisual) ? $this->elementVisual : null;
     }
     /**
+     * This method is responsible for validating the values passed to the setElementVisual method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setElementVisual method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateElementVisualForArrayConstraintsFromSetElementVisual(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $xmlResponseElementVisualItem) {
+            // validation for constraint: itemType
+            if (!$xmlResponseElementVisualItem instanceof \ColissimoPostage\StructType\ElementVisual) {
+                $invalidValues[] = is_object($xmlResponseElementVisualItem) ? get_class($xmlResponseElementVisualItem) : sprintf('%s(%s)', gettype($xmlResponseElementVisualItem), var_export($xmlResponseElementVisualItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The elementVisual property can only contain items of type \ColissimoPostage\StructType\ElementVisual, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set elementVisual value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
@@ -400,11 +422,9 @@ class XmlResponse extends AbstractStructBase
      */
     public function setElementVisual(array $elementVisual = array())
     {
-        foreach ($elementVisual as $xmlResponseElementVisualItem) {
-            // validation for constraint: itemType
-            if (!$xmlResponseElementVisualItem instanceof \ColissimoPostage\StructType\ElementVisual) {
-                throw new \InvalidArgumentException(sprintf('The elementVisual property can only contain items of \ColissimoPostage\StructType\ElementVisual, "%s" given', is_object($xmlResponseElementVisualItem) ? get_class($xmlResponseElementVisualItem) : gettype($xmlResponseElementVisualItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($elementVisualArrayErrorMessage = self::validateElementVisualForArrayConstraintsFromSetElementVisual($elementVisual))) {
+            throw new \InvalidArgumentException($elementVisualArrayErrorMessage, __LINE__);
         }
         if (is_null($elementVisual) || (is_array($elementVisual) && empty($elementVisual))) {
             unset($this->elementVisual);
@@ -423,7 +443,7 @@ class XmlResponse extends AbstractStructBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \ColissimoPostage\StructType\ElementVisual) {
-            throw new \InvalidArgumentException(sprintf('The elementVisual property can only contain items of \ColissimoPostage\StructType\ElementVisual, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The elementVisual property can only contain items of type \ColissimoPostage\StructType\ElementVisual, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->elementVisual[] = $item;
         return $this;
@@ -445,7 +465,7 @@ class XmlResponse extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($numberPCH) && !is_string($numberPCH)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($numberPCH)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($numberPCH, true), gettype($numberPCH)), __LINE__);
         }
         $this->numberPCH = $numberPCH;
         return $this;
@@ -467,7 +487,7 @@ class XmlResponse extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($numberRouting) && !is_string($numberRouting)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($numberRouting)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($numberRouting, true), gettype($numberRouting)), __LINE__);
         }
         $this->numberRouting = $numberRouting;
         return $this;
@@ -489,7 +509,7 @@ class XmlResponse extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($parcelNumber) && !is_string($parcelNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($parcelNumber)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($parcelNumber, true), gettype($parcelNumber)), __LINE__);
         }
         $this->parcelNumber = $parcelNumber;
         return $this;
@@ -511,7 +531,7 @@ class XmlResponse extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($parcelNumberPartner) && !is_string($parcelNumberPartner)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($parcelNumberPartner)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($parcelNumberPartner, true), gettype($parcelNumberPartner)), __LINE__);
         }
         $this->parcelNumberPartner = $parcelNumberPartner;
         return $this;
@@ -623,25 +643,5 @@ class XmlResponse extends AbstractStructBase
     {
         $this->zoneRouting = $zoneRouting;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \ColissimoPostage\StructType\XmlResponse
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

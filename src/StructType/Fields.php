@@ -13,7 +13,7 @@ class Fields extends AbstractStructBase
 {
     /**
      * The field
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * - nillable: true
@@ -42,6 +42,28 @@ class Fields extends AbstractStructBase
         return isset($this->field) ? $this->field : null;
     }
     /**
+     * This method is responsible for validating the values passed to the setField method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setField method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateFieldForArrayConstraintsFromSetField(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $fieldsFieldItem) {
+            // validation for constraint: itemType
+            if (!$fieldsFieldItem instanceof \ColissimoPostage\StructType\Field) {
+                $invalidValues[] = is_object($fieldsFieldItem) ? get_class($fieldsFieldItem) : sprintf('%s(%s)', gettype($fieldsFieldItem), var_export($fieldsFieldItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The field property can only contain items of type \ColissimoPostage\StructType\Field, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set field value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
@@ -51,11 +73,9 @@ class Fields extends AbstractStructBase
      */
     public function setField(array $field = array())
     {
-        foreach ($field as $fieldsFieldItem) {
-            // validation for constraint: itemType
-            if (!$fieldsFieldItem instanceof \ColissimoPostage\StructType\Field) {
-                throw new \InvalidArgumentException(sprintf('The field property can only contain items of \ColissimoPostage\StructType\Field, "%s" given', is_object($fieldsFieldItem) ? get_class($fieldsFieldItem) : gettype($fieldsFieldItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($fieldArrayErrorMessage = self::validateFieldForArrayConstraintsFromSetField($field))) {
+            throw new \InvalidArgumentException($fieldArrayErrorMessage, __LINE__);
         }
         if (is_null($field) || (is_array($field) && empty($field))) {
             unset($this->field);
@@ -74,29 +94,9 @@ class Fields extends AbstractStructBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \ColissimoPostage\StructType\Field) {
-            throw new \InvalidArgumentException(sprintf('The field property can only contain items of \ColissimoPostage\StructType\Field, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The field property can only contain items of type \ColissimoPostage\StructType\Field, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->field[] = $item;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \ColissimoPostage\StructType\Fields
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

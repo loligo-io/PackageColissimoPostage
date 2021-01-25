@@ -13,7 +13,7 @@ class Article extends AbstractStructBase
 {
     /**
      * The description
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -35,39 +35,53 @@ class Article extends AbstractStructBase
     public $value;
     /**
      * The hsCode
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $hsCode;
     /**
      * The originCountry
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $originCountry;
     /**
      * The currency
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $currency;
     /**
      * The artref
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $artref;
     /**
      * The originalIdent
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $originalIdent;
+    /**
+     * The vatAmount
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var float
+     */
+    public $vatAmount;
+    /**
+     * The customsFees
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var float
+     */
+    public $customsFees;
     /**
      * Constructor method for article
      * @uses Article::setDescription()
@@ -79,6 +93,8 @@ class Article extends AbstractStructBase
      * @uses Article::setCurrency()
      * @uses Article::setArtref()
      * @uses Article::setOriginalIdent()
+     * @uses Article::setVatAmount()
+     * @uses Article::setCustomsFees()
      * @param string $description
      * @param int $quantity
      * @param float $weight
@@ -88,8 +104,10 @@ class Article extends AbstractStructBase
      * @param string $currency
      * @param string $artref
      * @param string $originalIdent
+     * @param float $vatAmount
+     * @param float $customsFees
      */
-    public function __construct($description = null, $quantity = null, $weight = null, $value = null, $hsCode = null, $originCountry = null, $currency = null, $artref = null, $originalIdent = null)
+    public function __construct($description = null, $quantity = null, $weight = null, $value = null, $hsCode = null, $originCountry = null, $currency = null, $artref = null, $originalIdent = null, $vatAmount = null, $customsFees = null)
     {
         $this
             ->setDescription($description)
@@ -100,7 +118,9 @@ class Article extends AbstractStructBase
             ->setOriginCountry($originCountry)
             ->setCurrency($currency)
             ->setArtref($artref)
-            ->setOriginalIdent($originalIdent);
+            ->setOriginalIdent($originalIdent)
+            ->setVatAmount($vatAmount)
+            ->setCustomsFees($customsFees);
     }
     /**
      * Get description value
@@ -119,7 +139,7 @@ class Article extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($description) && !is_string($description)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($description)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($description, true), gettype($description)), __LINE__);
         }
         $this->description = $description;
         return $this;
@@ -140,8 +160,8 @@ class Article extends AbstractStructBase
     public function setQuantity($quantity = null)
     {
         // validation for constraint: int
-        if (!is_null($quantity) && !is_numeric($quantity)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($quantity)), __LINE__);
+        if (!is_null($quantity) && !(is_int($quantity) || ctype_digit($quantity))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($quantity, true), gettype($quantity)), __LINE__);
         }
         $this->quantity = $quantity;
         return $this;
@@ -161,6 +181,10 @@ class Article extends AbstractStructBase
      */
     public function setWeight($weight = null)
     {
+        // validation for constraint: float
+        if (!is_null($weight) && !(is_float($weight) || is_numeric($weight))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($weight, true), gettype($weight)), __LINE__);
+        }
         $this->weight = $weight;
         return $this;
     }
@@ -179,6 +203,10 @@ class Article extends AbstractStructBase
      */
     public function setValue($value = null)
     {
+        // validation for constraint: float
+        if (!is_null($value) && !(is_float($value) || is_numeric($value))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($value, true), gettype($value)), __LINE__);
+        }
         $this->value = $value;
         return $this;
     }
@@ -199,7 +227,7 @@ class Article extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($hsCode) && !is_string($hsCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($hsCode)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($hsCode, true), gettype($hsCode)), __LINE__);
         }
         $this->hsCode = $hsCode;
         return $this;
@@ -221,7 +249,7 @@ class Article extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($originCountry) && !is_string($originCountry)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($originCountry)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($originCountry, true), gettype($originCountry)), __LINE__);
         }
         $this->originCountry = $originCountry;
         return $this;
@@ -243,7 +271,7 @@ class Article extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($currency) && !is_string($currency)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($currency)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($currency, true), gettype($currency)), __LINE__);
         }
         $this->currency = $currency;
         return $this;
@@ -265,7 +293,7 @@ class Article extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($artref) && !is_string($artref)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($artref)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($artref, true), gettype($artref)), __LINE__);
         }
         $this->artref = $artref;
         return $this;
@@ -287,29 +315,53 @@ class Article extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($originalIdent) && !is_string($originalIdent)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($originalIdent)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($originalIdent, true), gettype($originalIdent)), __LINE__);
         }
         $this->originalIdent = $originalIdent;
         return $this;
     }
     /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \ColissimoPostage\StructType\Article
+     * Get vatAmount value
+     * @return float|null
      */
-    public static function __set_state(array $array)
+    public function getVatAmount()
     {
-        return parent::__set_state($array);
+        return $this->vatAmount;
     }
     /**
-     * Method returning the class name
-     * @return string __CLASS__
+     * Set vatAmount value
+     * @param float $vatAmount
+     * @return \ColissimoPostage\StructType\Article
      */
-    public function __toString()
+    public function setVatAmount($vatAmount = null)
     {
-        return __CLASS__;
+        // validation for constraint: float
+        if (!is_null($vatAmount) && !(is_float($vatAmount) || is_numeric($vatAmount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($vatAmount, true), gettype($vatAmount)), __LINE__);
+        }
+        $this->vatAmount = $vatAmount;
+        return $this;
+    }
+    /**
+     * Get customsFees value
+     * @return float|null
+     */
+    public function getCustomsFees()
+    {
+        return $this->customsFees;
+    }
+    /**
+     * Set customsFees value
+     * @param float $customsFees
+     * @return \ColissimoPostage\StructType\Article
+     */
+    public function setCustomsFees($customsFees = null)
+    {
+        // validation for constraint: float
+        if (!is_null($customsFees) && !(is_float($customsFees) || is_numeric($customsFees))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($customsFees, true), gettype($customsFees)), __LINE__);
+        }
+        $this->customsFees = $customsFees;
+        return $this;
     }
 }

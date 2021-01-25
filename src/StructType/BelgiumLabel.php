@@ -13,28 +13,28 @@ class BelgiumLabel extends AbstractStructBase
 {
     /**
      * The codeBarre
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $codeBarre;
     /**
      * The codeVAS
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \ColissimoPostage\StructType\CodeVAS
      */
     public $codeVAS;
     /**
      * The identification
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $identification;
     /**
      * The returnAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \ColissimoPostage\StructType\ReturnAddressBelgium
      */
@@ -75,7 +75,7 @@ class BelgiumLabel extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($codeBarre) && !is_string($codeBarre)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($codeBarre)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($codeBarre, true), gettype($codeBarre)), __LINE__);
         }
         $this->codeBarre = $codeBarre;
         return $this;
@@ -115,7 +115,7 @@ class BelgiumLabel extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($identification) && !is_string($identification)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($identification)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($identification, true), gettype($identification)), __LINE__);
         }
         $this->identification = $identification;
         return $this;
@@ -137,25 +137,5 @@ class BelgiumLabel extends AbstractStructBase
     {
         $this->returnAddress = $returnAddress;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \ColissimoPostage\StructType\BelgiumLabel
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }
