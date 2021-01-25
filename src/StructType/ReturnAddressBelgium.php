@@ -13,21 +13,21 @@ class ReturnAddressBelgium extends AbstractStructBase
 {
     /**
      * The line1
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $line1;
     /**
      * The line2
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $line2;
     /**
      * The mention
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -65,7 +65,7 @@ class ReturnAddressBelgium extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($line1) && !is_string($line1)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($line1)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($line1, true), gettype($line1)), __LINE__);
         }
         $this->line1 = $line1;
         return $this;
@@ -87,7 +87,7 @@ class ReturnAddressBelgium extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($line2) && !is_string($line2)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($line2)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($line2, true), gettype($line2)), __LINE__);
         }
         $this->line2 = $line2;
         return $this;
@@ -109,29 +109,9 @@ class ReturnAddressBelgium extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($mention) && !is_string($mention)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mention)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mention, true), gettype($mention)), __LINE__);
         }
         $this->mention = $mention;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \ColissimoPostage\StructType\ReturnAddressBelgium
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

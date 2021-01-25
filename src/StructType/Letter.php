@@ -23,14 +23,14 @@ class Letter extends AbstractStructBase
     public $parcel;
     /**
      * The customsDeclarations
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \ColissimoPostage\StructType\CustomsDeclarations
      */
     public $customsDeclarations;
     /**
      * The sender
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \ColissimoPostage\StructType\Sender
      */
@@ -42,11 +42,18 @@ class Letter extends AbstractStructBase
     public $addressee;
     /**
      * The codSenderAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \ColissimoPostage\StructType\CodSenderAddress
      */
     public $codSenderAddress;
+    /**
+     * The uploadDocument
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var \ColissimoPostage\StructType\UploadDocument
+     */
+    public $uploadDocument;
     /**
      * Constructor method for letter
      * @uses Letter::setService()
@@ -55,14 +62,16 @@ class Letter extends AbstractStructBase
      * @uses Letter::setSender()
      * @uses Letter::setAddressee()
      * @uses Letter::setCodSenderAddress()
+     * @uses Letter::setUploadDocument()
      * @param \ColissimoPostage\StructType\Service $service
      * @param \ColissimoPostage\StructType\Parcel $parcel
      * @param \ColissimoPostage\StructType\CustomsDeclarations $customsDeclarations
      * @param \ColissimoPostage\StructType\Sender $sender
      * @param \ColissimoPostage\StructType\Addressee $addressee
      * @param \ColissimoPostage\StructType\CodSenderAddress $codSenderAddress
+     * @param \ColissimoPostage\StructType\UploadDocument $uploadDocument
      */
-    public function __construct(\ColissimoPostage\StructType\Service $service = null, \ColissimoPostage\StructType\Parcel $parcel = null, \ColissimoPostage\StructType\CustomsDeclarations $customsDeclarations = null, \ColissimoPostage\StructType\Sender $sender = null, \ColissimoPostage\StructType\Addressee $addressee = null, \ColissimoPostage\StructType\CodSenderAddress $codSenderAddress = null)
+    public function __construct(\ColissimoPostage\StructType\Service $service = null, \ColissimoPostage\StructType\Parcel $parcel = null, \ColissimoPostage\StructType\CustomsDeclarations $customsDeclarations = null, \ColissimoPostage\StructType\Sender $sender = null, \ColissimoPostage\StructType\Addressee $addressee = null, \ColissimoPostage\StructType\CodSenderAddress $codSenderAddress = null, \ColissimoPostage\StructType\UploadDocument $uploadDocument = null)
     {
         $this
             ->setService($service)
@@ -70,7 +79,8 @@ class Letter extends AbstractStructBase
             ->setCustomsDeclarations($customsDeclarations)
             ->setSender($sender)
             ->setAddressee($addressee)
-            ->setCodSenderAddress($codSenderAddress);
+            ->setCodSenderAddress($codSenderAddress)
+            ->setUploadDocument($uploadDocument);
     }
     /**
      * Get service value
@@ -181,23 +191,21 @@ class Letter extends AbstractStructBase
         return $this;
     }
     /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \ColissimoPostage\StructType\Letter
+     * Get uploadDocument value
+     * @return \ColissimoPostage\StructType\UploadDocument|null
      */
-    public static function __set_state(array $array)
+    public function getUploadDocument()
     {
-        return parent::__set_state($array);
+        return $this->uploadDocument;
     }
     /**
-     * Method returning the class name
-     * @return string __CLASS__
+     * Set uploadDocument value
+     * @param \ColissimoPostage\StructType\UploadDocument $uploadDocument
+     * @return \ColissimoPostage\StructType\Letter
      */
-    public function __toString()
+    public function setUploadDocument(\ColissimoPostage\StructType\UploadDocument $uploadDocument = null)
     {
-        return __CLASS__;
+        $this->uploadDocument = $uploadDocument;
+        return $this;
     }
 }

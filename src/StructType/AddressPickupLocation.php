@@ -13,56 +13,56 @@ class AddressPickupLocation extends AbstractStructBase
 {
     /**
      * The city
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $city;
     /**
      * The countryCode
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $countryCode;
     /**
      * The countryLabel
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $countryLabel;
     /**
      * The line1
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $line1;
     /**
      * The line2
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $line2;
     /**
      * The line3
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $line3;
     /**
      * The line4
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $line4;
     /**
      * The zipCode
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -115,7 +115,7 @@ class AddressPickupLocation extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($city) && !is_string($city)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($city)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($city, true), gettype($city)), __LINE__);
         }
         $this->city = $city;
         return $this;
@@ -137,7 +137,7 @@ class AddressPickupLocation extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($countryCode) && !is_string($countryCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($countryCode)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($countryCode, true), gettype($countryCode)), __LINE__);
         }
         $this->countryCode = $countryCode;
         return $this;
@@ -159,7 +159,7 @@ class AddressPickupLocation extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($countryLabel) && !is_string($countryLabel)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($countryLabel)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($countryLabel, true), gettype($countryLabel)), __LINE__);
         }
         $this->countryLabel = $countryLabel;
         return $this;
@@ -181,7 +181,7 @@ class AddressPickupLocation extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($line1) && !is_string($line1)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($line1)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($line1, true), gettype($line1)), __LINE__);
         }
         $this->line1 = $line1;
         return $this;
@@ -203,7 +203,7 @@ class AddressPickupLocation extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($line2) && !is_string($line2)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($line2)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($line2, true), gettype($line2)), __LINE__);
         }
         $this->line2 = $line2;
         return $this;
@@ -225,7 +225,7 @@ class AddressPickupLocation extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($line3) && !is_string($line3)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($line3)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($line3, true), gettype($line3)), __LINE__);
         }
         $this->line3 = $line3;
         return $this;
@@ -247,7 +247,7 @@ class AddressPickupLocation extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($line4) && !is_string($line4)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($line4)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($line4, true), gettype($line4)), __LINE__);
         }
         $this->line4 = $line4;
         return $this;
@@ -269,29 +269,9 @@ class AddressPickupLocation extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($zipCode) && !is_string($zipCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($zipCode)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($zipCode, true), gettype($zipCode)), __LINE__);
         }
         $this->zipCode = $zipCode;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \ColissimoPostage\StructType\AddressPickupLocation
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

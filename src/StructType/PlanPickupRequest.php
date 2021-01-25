@@ -28,7 +28,7 @@ class PlanPickupRequest extends AbstractStructBase
     public $parcelNumber;
     /**
      * The mailBoxPickingDate
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -77,7 +77,7 @@ class PlanPickupRequest extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($contractNumber) && !is_string($contractNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($contractNumber)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($contractNumber, true), gettype($contractNumber)), __LINE__);
         }
         $this->contractNumber = $contractNumber;
         return $this;
@@ -99,7 +99,7 @@ class PlanPickupRequest extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($password) && !is_string($password)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($password)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($password, true), gettype($password)), __LINE__);
         }
         $this->password = $password;
         return $this;
@@ -121,7 +121,7 @@ class PlanPickupRequest extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($parcelNumber) && !is_string($parcelNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($parcelNumber)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($parcelNumber, true), gettype($parcelNumber)), __LINE__);
         }
         $this->parcelNumber = $parcelNumber;
         return $this;
@@ -143,7 +143,7 @@ class PlanPickupRequest extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($mailBoxPickingDate) && !is_string($mailBoxPickingDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mailBoxPickingDate)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailBoxPickingDate, true), gettype($mailBoxPickingDate)), __LINE__);
         }
         $this->mailBoxPickingDate = $mailBoxPickingDate;
         return $this;
@@ -165,25 +165,5 @@ class PlanPickupRequest extends AbstractStructBase
     {
         $this->sender = $sender;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \ColissimoPostage\StructType\PlanPickupRequest
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

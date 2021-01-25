@@ -23,70 +23,70 @@ class Service extends AbstractStructBase
     public $depositDate;
     /**
      * The mailBoxPicking
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $mailBoxPicking;
     /**
      * The mailBoxPickingDate
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $mailBoxPickingDate;
     /**
      * The vatCode
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $vatCode;
     /**
      * The vatPercentage
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $vatPercentage;
     /**
      * The vatAmount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $vatAmount;
     /**
      * The transportationAmount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $transportationAmount;
     /**
      * The totalAmount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $totalAmount;
     /**
      * The orderNumber
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $orderNumber;
     /**
      * The commercialName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $commercialName;
     /**
      * The returnTypeChoice
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
@@ -151,7 +151,7 @@ class Service extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($productCode) && !is_string($productCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($productCode)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productCode, true), gettype($productCode)), __LINE__);
         }
         $this->productCode = $productCode;
         return $this;
@@ -173,7 +173,7 @@ class Service extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($depositDate) && !is_string($depositDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($depositDate)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($depositDate, true), gettype($depositDate)), __LINE__);
         }
         $this->depositDate = $depositDate;
         return $this;
@@ -195,7 +195,7 @@ class Service extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($mailBoxPicking) && !is_bool($mailBoxPicking)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($mailBoxPicking)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($mailBoxPicking, true), gettype($mailBoxPicking)), __LINE__);
         }
         $this->mailBoxPicking = $mailBoxPicking;
         return $this;
@@ -217,7 +217,7 @@ class Service extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($mailBoxPickingDate) && !is_string($mailBoxPickingDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mailBoxPickingDate)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailBoxPickingDate, true), gettype($mailBoxPickingDate)), __LINE__);
         }
         $this->mailBoxPickingDate = $mailBoxPickingDate;
         return $this;
@@ -238,8 +238,8 @@ class Service extends AbstractStructBase
     public function setVatCode($vatCode = null)
     {
         // validation for constraint: int
-        if (!is_null($vatCode) && !is_numeric($vatCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($vatCode)), __LINE__);
+        if (!is_null($vatCode) && !(is_int($vatCode) || ctype_digit($vatCode))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($vatCode, true), gettype($vatCode)), __LINE__);
         }
         $this->vatCode = $vatCode;
         return $this;
@@ -260,8 +260,8 @@ class Service extends AbstractStructBase
     public function setVatPercentage($vatPercentage = null)
     {
         // validation for constraint: int
-        if (!is_null($vatPercentage) && !is_numeric($vatPercentage)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($vatPercentage)), __LINE__);
+        if (!is_null($vatPercentage) && !(is_int($vatPercentage) || ctype_digit($vatPercentage))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($vatPercentage, true), gettype($vatPercentage)), __LINE__);
         }
         $this->vatPercentage = $vatPercentage;
         return $this;
@@ -282,8 +282,8 @@ class Service extends AbstractStructBase
     public function setVatAmount($vatAmount = null)
     {
         // validation for constraint: int
-        if (!is_null($vatAmount) && !is_numeric($vatAmount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($vatAmount)), __LINE__);
+        if (!is_null($vatAmount) && !(is_int($vatAmount) || ctype_digit($vatAmount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($vatAmount, true), gettype($vatAmount)), __LINE__);
         }
         $this->vatAmount = $vatAmount;
         return $this;
@@ -304,8 +304,8 @@ class Service extends AbstractStructBase
     public function setTransportationAmount($transportationAmount = null)
     {
         // validation for constraint: int
-        if (!is_null($transportationAmount) && !is_numeric($transportationAmount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($transportationAmount)), __LINE__);
+        if (!is_null($transportationAmount) && !(is_int($transportationAmount) || ctype_digit($transportationAmount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($transportationAmount, true), gettype($transportationAmount)), __LINE__);
         }
         $this->transportationAmount = $transportationAmount;
         return $this;
@@ -326,8 +326,8 @@ class Service extends AbstractStructBase
     public function setTotalAmount($totalAmount = null)
     {
         // validation for constraint: int
-        if (!is_null($totalAmount) && !is_numeric($totalAmount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalAmount)), __LINE__);
+        if (!is_null($totalAmount) && !(is_int($totalAmount) || ctype_digit($totalAmount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalAmount, true), gettype($totalAmount)), __LINE__);
         }
         $this->totalAmount = $totalAmount;
         return $this;
@@ -349,7 +349,7 @@ class Service extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($orderNumber) && !is_string($orderNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($orderNumber)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($orderNumber, true), gettype($orderNumber)), __LINE__);
         }
         $this->orderNumber = $orderNumber;
         return $this;
@@ -371,7 +371,7 @@ class Service extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($commercialName) && !is_string($commercialName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($commercialName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($commercialName, true), gettype($commercialName)), __LINE__);
         }
         $this->commercialName = $commercialName;
         return $this;
@@ -392,30 +392,10 @@ class Service extends AbstractStructBase
     public function setReturnTypeChoice($returnTypeChoice = null)
     {
         // validation for constraint: int
-        if (!is_null($returnTypeChoice) && !is_numeric($returnTypeChoice)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($returnTypeChoice)), __LINE__);
+        if (!is_null($returnTypeChoice) && !(is_int($returnTypeChoice) || ctype_digit($returnTypeChoice))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($returnTypeChoice, true), gettype($returnTypeChoice)), __LINE__);
         }
         $this->returnTypeChoice = $returnTypeChoice;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \ColissimoPostage\StructType\Service
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

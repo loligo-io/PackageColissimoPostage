@@ -13,7 +13,7 @@ class BordereauHeader extends AbstractStructBase
 {
     /**
      * The address
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -25,28 +25,28 @@ class BordereauHeader extends AbstractStructBase
     public $bordereauNumber;
     /**
      * The clientNumber
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $clientNumber;
     /**
      * The codeSitePCH
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $codeSitePCH;
     /**
      * The company
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $company;
     /**
      * The nameSitePCH
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -58,7 +58,7 @@ class BordereauHeader extends AbstractStructBase
     public $numberOfParcels;
     /**
      * The publishingDate
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -111,7 +111,7 @@ class BordereauHeader extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($address) && !is_string($address)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($address)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($address, true), gettype($address)), __LINE__);
         }
         $this->address = $address;
         return $this;
@@ -132,8 +132,8 @@ class BordereauHeader extends AbstractStructBase
     public function setBordereauNumber($bordereauNumber = null)
     {
         // validation for constraint: int
-        if (!is_null($bordereauNumber) && !is_numeric($bordereauNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($bordereauNumber)), __LINE__);
+        if (!is_null($bordereauNumber) && !(is_int($bordereauNumber) || ctype_digit($bordereauNumber))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($bordereauNumber, true), gettype($bordereauNumber)), __LINE__);
         }
         $this->bordereauNumber = $bordereauNumber;
         return $this;
@@ -155,7 +155,7 @@ class BordereauHeader extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($clientNumber) && !is_string($clientNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($clientNumber)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($clientNumber, true), gettype($clientNumber)), __LINE__);
         }
         $this->clientNumber = $clientNumber;
         return $this;
@@ -176,8 +176,8 @@ class BordereauHeader extends AbstractStructBase
     public function setCodeSitePCH($codeSitePCH = null)
     {
         // validation for constraint: int
-        if (!is_null($codeSitePCH) && !is_numeric($codeSitePCH)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($codeSitePCH)), __LINE__);
+        if (!is_null($codeSitePCH) && !(is_int($codeSitePCH) || ctype_digit($codeSitePCH))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($codeSitePCH, true), gettype($codeSitePCH)), __LINE__);
         }
         $this->codeSitePCH = $codeSitePCH;
         return $this;
@@ -199,7 +199,7 @@ class BordereauHeader extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($company) && !is_string($company)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($company)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($company, true), gettype($company)), __LINE__);
         }
         $this->company = $company;
         return $this;
@@ -221,7 +221,7 @@ class BordereauHeader extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($nameSitePCH) && !is_string($nameSitePCH)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($nameSitePCH)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($nameSitePCH, true), gettype($nameSitePCH)), __LINE__);
         }
         $this->nameSitePCH = $nameSitePCH;
         return $this;
@@ -242,8 +242,8 @@ class BordereauHeader extends AbstractStructBase
     public function setNumberOfParcels($numberOfParcels = null)
     {
         // validation for constraint: int
-        if (!is_null($numberOfParcels) && !is_numeric($numberOfParcels)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($numberOfParcels)), __LINE__);
+        if (!is_null($numberOfParcels) && !(is_int($numberOfParcels) || ctype_digit($numberOfParcels))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfParcels, true), gettype($numberOfParcels)), __LINE__);
         }
         $this->numberOfParcels = $numberOfParcels;
         return $this;
@@ -265,29 +265,9 @@ class BordereauHeader extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($publishingDate) && !is_string($publishingDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($publishingDate)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($publishingDate, true), gettype($publishingDate)), __LINE__);
         }
         $this->publishingDate = $publishingDate;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \ColissimoPostage\StructType\BordereauHeader
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

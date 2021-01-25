@@ -13,63 +13,63 @@ class PickupLocation extends AbstractStructBase
 {
     /**
      * The address
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \ColissimoPostage\StructType\AddressPickupLocation
      */
     public $address;
     /**
      * The groupRouting
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $groupRouting;
     /**
      * The name
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $name;
     /**
      * The netWork
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $netWork;
     /**
      * The pointId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $pointId;
     /**
      * The routingFileVersion
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $routingFileVersion;
     /**
      * The routingZipCode
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $routingZipCode;
     /**
      * The serviceLabel
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $serviceLabel;
     /**
      * The sortDistribution
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -143,7 +143,7 @@ class PickupLocation extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($groupRouting) && !is_string($groupRouting)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($groupRouting)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($groupRouting, true), gettype($groupRouting)), __LINE__);
         }
         $this->groupRouting = $groupRouting;
         return $this;
@@ -165,7 +165,7 @@ class PickupLocation extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         $this->name = $name;
         return $this;
@@ -187,7 +187,7 @@ class PickupLocation extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($netWork) && !is_string($netWork)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($netWork)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($netWork, true), gettype($netWork)), __LINE__);
         }
         $this->netWork = $netWork;
         return $this;
@@ -209,7 +209,7 @@ class PickupLocation extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($pointId) && !is_string($pointId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($pointId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($pointId, true), gettype($pointId)), __LINE__);
         }
         $this->pointId = $pointId;
         return $this;
@@ -231,7 +231,7 @@ class PickupLocation extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($routingFileVersion) && !is_string($routingFileVersion)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($routingFileVersion)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($routingFileVersion, true), gettype($routingFileVersion)), __LINE__);
         }
         $this->routingFileVersion = $routingFileVersion;
         return $this;
@@ -253,7 +253,7 @@ class PickupLocation extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($routingZipCode) && !is_string($routingZipCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($routingZipCode)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($routingZipCode, true), gettype($routingZipCode)), __LINE__);
         }
         $this->routingZipCode = $routingZipCode;
         return $this;
@@ -275,7 +275,7 @@ class PickupLocation extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($serviceLabel) && !is_string($serviceLabel)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($serviceLabel)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($serviceLabel, true), gettype($serviceLabel)), __LINE__);
         }
         $this->serviceLabel = $serviceLabel;
         return $this;
@@ -297,29 +297,9 @@ class PickupLocation extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($sortDistribution) && !is_string($sortDistribution)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sortDistribution)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sortDistribution, true), gettype($sortDistribution)), __LINE__);
         }
         $this->sortDistribution = $sortDistribution;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \ColissimoPostage\StructType\PickupLocation
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

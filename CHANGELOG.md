@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.0.0
+- Update generated classes following WSDL updates
+- Update generated classes thanks to PackageGenerator release [3.3.4](https://github.com/WsdlToPhp/PackageGenerator/releases/tag/3.3.4)
+- Add Docker image usage
+
 ## 1.0.0
 - Update generated classes following WSDL updates
 

@@ -13,95 +13,102 @@ class Parcel extends AbstractStructBase
 {
     /**
      * The parcelNumber
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $parcelNumber;
     /**
      * The insuranceAmount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $insuranceAmount;
     /**
      * The insuranceValue
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $insuranceValue;
     /**
      * The recommendationLevel
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $recommendationLevel;
     /**
      * The weight
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var float
      */
     public $weight;
     /**
      * The nonMachinable
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $nonMachinable;
     /**
      * The COD
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $COD;
     /**
      * The CODAmount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $CODAmount;
     /**
      * The CODCurrency
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $CODCurrency;
     /**
      * The returnReceipt
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $returnReceipt;
     /**
      * The instructions
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $instructions;
     /**
      * The pickupLocationId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $pickupLocationId;
     /**
      * The ftd
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $ftd;
+    /**
+     * The ddp
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var bool
+     */
+    public $ddp;
     /**
      * Constructor method for parcel
      * @uses Parcel::setParcelNumber()
@@ -117,6 +124,7 @@ class Parcel extends AbstractStructBase
      * @uses Parcel::setInstructions()
      * @uses Parcel::setPickupLocationId()
      * @uses Parcel::setFtd()
+     * @uses Parcel::setDdp()
      * @param string $parcelNumber
      * @param int $insuranceAmount
      * @param int $insuranceValue
@@ -130,8 +138,9 @@ class Parcel extends AbstractStructBase
      * @param string $instructions
      * @param string $pickupLocationId
      * @param bool $ftd
+     * @param bool $ddp
      */
-    public function __construct($parcelNumber = null, $insuranceAmount = null, $insuranceValue = null, $recommendationLevel = null, $weight = null, $nonMachinable = null, $cOD = null, $cODAmount = null, $cODCurrency = null, $returnReceipt = null, $instructions = null, $pickupLocationId = null, $ftd = null)
+    public function __construct($parcelNumber = null, $insuranceAmount = null, $insuranceValue = null, $recommendationLevel = null, $weight = null, $nonMachinable = null, $cOD = null, $cODAmount = null, $cODCurrency = null, $returnReceipt = null, $instructions = null, $pickupLocationId = null, $ftd = null, $ddp = null)
     {
         $this
             ->setParcelNumber($parcelNumber)
@@ -146,7 +155,8 @@ class Parcel extends AbstractStructBase
             ->setReturnReceipt($returnReceipt)
             ->setInstructions($instructions)
             ->setPickupLocationId($pickupLocationId)
-            ->setFtd($ftd);
+            ->setFtd($ftd)
+            ->setDdp($ddp);
     }
     /**
      * Get parcelNumber value
@@ -165,7 +175,7 @@ class Parcel extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($parcelNumber) && !is_string($parcelNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($parcelNumber)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($parcelNumber, true), gettype($parcelNumber)), __LINE__);
         }
         $this->parcelNumber = $parcelNumber;
         return $this;
@@ -186,8 +196,8 @@ class Parcel extends AbstractStructBase
     public function setInsuranceAmount($insuranceAmount = null)
     {
         // validation for constraint: int
-        if (!is_null($insuranceAmount) && !is_numeric($insuranceAmount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($insuranceAmount)), __LINE__);
+        if (!is_null($insuranceAmount) && !(is_int($insuranceAmount) || ctype_digit($insuranceAmount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($insuranceAmount, true), gettype($insuranceAmount)), __LINE__);
         }
         $this->insuranceAmount = $insuranceAmount;
         return $this;
@@ -208,8 +218,8 @@ class Parcel extends AbstractStructBase
     public function setInsuranceValue($insuranceValue = null)
     {
         // validation for constraint: int
-        if (!is_null($insuranceValue) && !is_numeric($insuranceValue)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($insuranceValue)), __LINE__);
+        if (!is_null($insuranceValue) && !(is_int($insuranceValue) || ctype_digit($insuranceValue))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($insuranceValue, true), gettype($insuranceValue)), __LINE__);
         }
         $this->insuranceValue = $insuranceValue;
         return $this;
@@ -231,7 +241,7 @@ class Parcel extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($recommendationLevel) && !is_string($recommendationLevel)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($recommendationLevel)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($recommendationLevel, true), gettype($recommendationLevel)), __LINE__);
         }
         $this->recommendationLevel = $recommendationLevel;
         return $this;
@@ -251,6 +261,10 @@ class Parcel extends AbstractStructBase
      */
     public function setWeight($weight = null)
     {
+        // validation for constraint: float
+        if (!is_null($weight) && !(is_float($weight) || is_numeric($weight))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($weight, true), gettype($weight)), __LINE__);
+        }
         $this->weight = $weight;
         return $this;
     }
@@ -271,7 +285,7 @@ class Parcel extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($nonMachinable) && !is_bool($nonMachinable)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($nonMachinable)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($nonMachinable, true), gettype($nonMachinable)), __LINE__);
         }
         $this->nonMachinable = $nonMachinable;
         return $this;
@@ -293,7 +307,7 @@ class Parcel extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($cOD) && !is_bool($cOD)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($cOD)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($cOD, true), gettype($cOD)), __LINE__);
         }
         $this->COD = $cOD;
         return $this;
@@ -314,8 +328,8 @@ class Parcel extends AbstractStructBase
     public function setCODAmount($cODAmount = null)
     {
         // validation for constraint: int
-        if (!is_null($cODAmount) && !is_numeric($cODAmount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($cODAmount)), __LINE__);
+        if (!is_null($cODAmount) && !(is_int($cODAmount) || ctype_digit($cODAmount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($cODAmount, true), gettype($cODAmount)), __LINE__);
         }
         $this->CODAmount = $cODAmount;
         return $this;
@@ -337,7 +351,7 @@ class Parcel extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($cODCurrency) && !is_string($cODCurrency)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($cODCurrency)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($cODCurrency, true), gettype($cODCurrency)), __LINE__);
         }
         $this->CODCurrency = $cODCurrency;
         return $this;
@@ -359,7 +373,7 @@ class Parcel extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($returnReceipt) && !is_bool($returnReceipt)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($returnReceipt)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($returnReceipt, true), gettype($returnReceipt)), __LINE__);
         }
         $this->returnReceipt = $returnReceipt;
         return $this;
@@ -381,7 +395,7 @@ class Parcel extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($instructions) && !is_string($instructions)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($instructions)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($instructions, true), gettype($instructions)), __LINE__);
         }
         $this->instructions = $instructions;
         return $this;
@@ -403,7 +417,7 @@ class Parcel extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($pickupLocationId) && !is_string($pickupLocationId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($pickupLocationId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($pickupLocationId, true), gettype($pickupLocationId)), __LINE__);
         }
         $this->pickupLocationId = $pickupLocationId;
         return $this;
@@ -425,29 +439,31 @@ class Parcel extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($ftd) && !is_bool($ftd)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($ftd)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($ftd, true), gettype($ftd)), __LINE__);
         }
         $this->ftd = $ftd;
         return $this;
     }
     /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \ColissimoPostage\StructType\Parcel
+     * Get ddp value
+     * @return bool|null
      */
-    public static function __set_state(array $array)
+    public function getDdp()
     {
-        return parent::__set_state($array);
+        return $this->ddp;
     }
     /**
-     * Method returning the class name
-     * @return string __CLASS__
+     * Set ddp value
+     * @param bool $ddp
+     * @return \ColissimoPostage\StructType\Parcel
      */
-    public function __toString()
+    public function setDdp($ddp = null)
     {
-        return __CLASS__;
+        // validation for constraint: boolean
+        if (!is_null($ddp) && !is_bool($ddp)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($ddp, true), gettype($ddp)), __LINE__);
+        }
+        $this->ddp = $ddp;
+        return $this;
     }
 }

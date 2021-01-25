@@ -13,14 +13,14 @@ class ZoneCABRoutage extends AbstractStructBase
 {
     /**
      * The barCodeRouting
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $barCodeRouting;
     /**
      * The parcelNumberRouting
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -55,7 +55,7 @@ class ZoneCABRoutage extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($barCodeRouting) && !is_string($barCodeRouting)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($barCodeRouting)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($barCodeRouting, true), gettype($barCodeRouting)), __LINE__);
         }
         $this->barCodeRouting = $barCodeRouting;
         return $this;
@@ -77,29 +77,9 @@ class ZoneCABRoutage extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($parcelNumberRouting) && !is_string($parcelNumberRouting)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($parcelNumberRouting)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($parcelNumberRouting, true), gettype($parcelNumberRouting)), __LINE__);
         }
         $this->parcelNumberRouting = $parcelNumberRouting;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \ColissimoPostage\StructType\ZoneCABRoutage
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

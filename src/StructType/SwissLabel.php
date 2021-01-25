@@ -13,28 +13,28 @@ class SwissLabel extends AbstractStructBase
 {
     /**
      * The injectionSite
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $injectionSite;
     /**
      * The signatureOption
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $signatureOption;
     /**
      * The codeSwissPost
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $codeSwissPost;
     /**
      * The swissParcelNumber
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -75,7 +75,7 @@ class SwissLabel extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($injectionSite) && !is_string($injectionSite)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($injectionSite)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($injectionSite, true), gettype($injectionSite)), __LINE__);
         }
         $this->injectionSite = $injectionSite;
         return $this;
@@ -97,7 +97,7 @@ class SwissLabel extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($signatureOption) && !is_bool($signatureOption)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($signatureOption)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($signatureOption, true), gettype($signatureOption)), __LINE__);
         }
         $this->signatureOption = $signatureOption;
         return $this;
@@ -119,7 +119,7 @@ class SwissLabel extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($codeSwissPost) && !is_string($codeSwissPost)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($codeSwissPost)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($codeSwissPost, true), gettype($codeSwissPost)), __LINE__);
         }
         $this->codeSwissPost = $codeSwissPost;
         return $this;
@@ -141,29 +141,9 @@ class SwissLabel extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($swissParcelNumber) && !is_string($swissParcelNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($swissParcelNumber)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($swissParcelNumber, true), gettype($swissParcelNumber)), __LINE__);
         }
         $this->swissParcelNumber = $swissParcelNumber;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \ColissimoPostage\StructType\SwissLabel
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

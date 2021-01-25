@@ -13,77 +13,77 @@ class Routing extends AbstractStructBase
 {
     /**
      * The barcodeId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $barcodeId;
     /**
      * The depotDest
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $depotDest;
     /**
      * The destinationCountry
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $destinationCountry;
     /**
      * The destinationCountryText
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $destinationCountryText;
     /**
      * The groupingPriorityLabel
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $groupingPriorityLabel;
     /**
      * The partnerType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $partnerType;
     /**
      * The routingVersion
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $routingVersion;
     /**
      * The serviceMark
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $serviceMark;
     /**
      * The serviceText
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $serviceText;
     /**
      * The sortDest
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $sortDest;
     /**
      * The sortOrigin
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -145,7 +145,7 @@ class Routing extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($barcodeId) && !is_string($barcodeId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($barcodeId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($barcodeId, true), gettype($barcodeId)), __LINE__);
         }
         $this->barcodeId = $barcodeId;
         return $this;
@@ -167,7 +167,7 @@ class Routing extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($depotDest) && !is_string($depotDest)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($depotDest)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($depotDest, true), gettype($depotDest)), __LINE__);
         }
         $this->depotDest = $depotDest;
         return $this;
@@ -189,7 +189,7 @@ class Routing extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($destinationCountry) && !is_string($destinationCountry)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($destinationCountry)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($destinationCountry, true), gettype($destinationCountry)), __LINE__);
         }
         $this->destinationCountry = $destinationCountry;
         return $this;
@@ -211,7 +211,7 @@ class Routing extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($destinationCountryText) && !is_string($destinationCountryText)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($destinationCountryText)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($destinationCountryText, true), gettype($destinationCountryText)), __LINE__);
         }
         $this->destinationCountryText = $destinationCountryText;
         return $this;
@@ -233,7 +233,7 @@ class Routing extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($groupingPriorityLabel) && !is_string($groupingPriorityLabel)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($groupingPriorityLabel)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($groupingPriorityLabel, true), gettype($groupingPriorityLabel)), __LINE__);
         }
         $this->groupingPriorityLabel = $groupingPriorityLabel;
         return $this;
@@ -255,7 +255,7 @@ class Routing extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($partnerType) && !is_string($partnerType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($partnerType)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($partnerType, true), gettype($partnerType)), __LINE__);
         }
         $this->partnerType = $partnerType;
         return $this;
@@ -277,7 +277,7 @@ class Routing extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($routingVersion) && !is_string($routingVersion)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($routingVersion)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($routingVersion, true), gettype($routingVersion)), __LINE__);
         }
         $this->routingVersion = $routingVersion;
         return $this;
@@ -299,7 +299,7 @@ class Routing extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($serviceMark) && !is_string($serviceMark)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($serviceMark)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($serviceMark, true), gettype($serviceMark)), __LINE__);
         }
         $this->serviceMark = $serviceMark;
         return $this;
@@ -321,7 +321,7 @@ class Routing extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($serviceText) && !is_string($serviceText)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($serviceText)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($serviceText, true), gettype($serviceText)), __LINE__);
         }
         $this->serviceText = $serviceText;
         return $this;
@@ -343,7 +343,7 @@ class Routing extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($sortDest) && !is_string($sortDest)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sortDest)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sortDest, true), gettype($sortDest)), __LINE__);
         }
         $this->sortDest = $sortDest;
         return $this;
@@ -365,29 +365,9 @@ class Routing extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($sortOrigin) && !is_string($sortOrigin)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sortOrigin)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sortOrigin, true), gettype($sortOrigin)), __LINE__);
         }
         $this->sortOrigin = $sortOrigin;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \ColissimoPostage\StructType\Routing
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

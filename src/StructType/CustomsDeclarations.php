@@ -13,70 +13,77 @@ class CustomsDeclarations extends AbstractStructBase
 {
     /**
      * The includeCustomsDeclarations
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $includeCustomsDeclarations;
     /**
      * The contents
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \ColissimoPostage\StructType\Contents
      */
     public $contents;
     /**
      * The importersReference
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $importersReference;
     /**
      * The importersContact
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $importersContact;
     /**
      * The officeOrigin
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $officeOrigin;
     /**
      * The comments
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $comments;
     /**
+     * The description
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var string
+     */
+    public $description;
+    /**
      * The invoiceNumber
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $invoiceNumber;
     /**
      * The licenceNumber
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $licenceNumber;
     /**
      * The certificatNumber
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $certificatNumber;
     /**
      * The importerAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \ColissimoPostage\StructType\ImporterAddress
      */
@@ -89,6 +96,7 @@ class CustomsDeclarations extends AbstractStructBase
      * @uses CustomsDeclarations::setImportersContact()
      * @uses CustomsDeclarations::setOfficeOrigin()
      * @uses CustomsDeclarations::setComments()
+     * @uses CustomsDeclarations::setDescription()
      * @uses CustomsDeclarations::setInvoiceNumber()
      * @uses CustomsDeclarations::setLicenceNumber()
      * @uses CustomsDeclarations::setCertificatNumber()
@@ -99,12 +107,13 @@ class CustomsDeclarations extends AbstractStructBase
      * @param string $importersContact
      * @param string $officeOrigin
      * @param string $comments
+     * @param string $description
      * @param string $invoiceNumber
      * @param string $licenceNumber
      * @param string $certificatNumber
      * @param \ColissimoPostage\StructType\ImporterAddress $importerAddress
      */
-    public function __construct($includeCustomsDeclarations = null, \ColissimoPostage\StructType\Contents $contents = null, $importersReference = null, $importersContact = null, $officeOrigin = null, $comments = null, $invoiceNumber = null, $licenceNumber = null, $certificatNumber = null, \ColissimoPostage\StructType\ImporterAddress $importerAddress = null)
+    public function __construct($includeCustomsDeclarations = null, \ColissimoPostage\StructType\Contents $contents = null, $importersReference = null, $importersContact = null, $officeOrigin = null, $comments = null, $description = null, $invoiceNumber = null, $licenceNumber = null, $certificatNumber = null, \ColissimoPostage\StructType\ImporterAddress $importerAddress = null)
     {
         $this
             ->setIncludeCustomsDeclarations($includeCustomsDeclarations)
@@ -113,6 +122,7 @@ class CustomsDeclarations extends AbstractStructBase
             ->setImportersContact($importersContact)
             ->setOfficeOrigin($officeOrigin)
             ->setComments($comments)
+            ->setDescription($description)
             ->setInvoiceNumber($invoiceNumber)
             ->setLicenceNumber($licenceNumber)
             ->setCertificatNumber($certificatNumber)
@@ -135,7 +145,7 @@ class CustomsDeclarations extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($includeCustomsDeclarations) && !is_bool($includeCustomsDeclarations)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($includeCustomsDeclarations)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($includeCustomsDeclarations, true), gettype($includeCustomsDeclarations)), __LINE__);
         }
         $this->includeCustomsDeclarations = $includeCustomsDeclarations;
         return $this;
@@ -175,7 +185,7 @@ class CustomsDeclarations extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($importersReference) && !is_string($importersReference)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($importersReference)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($importersReference, true), gettype($importersReference)), __LINE__);
         }
         $this->importersReference = $importersReference;
         return $this;
@@ -197,7 +207,7 @@ class CustomsDeclarations extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($importersContact) && !is_string($importersContact)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($importersContact)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($importersContact, true), gettype($importersContact)), __LINE__);
         }
         $this->importersContact = $importersContact;
         return $this;
@@ -219,7 +229,7 @@ class CustomsDeclarations extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($officeOrigin) && !is_string($officeOrigin)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($officeOrigin)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($officeOrigin, true), gettype($officeOrigin)), __LINE__);
         }
         $this->officeOrigin = $officeOrigin;
         return $this;
@@ -241,9 +251,31 @@ class CustomsDeclarations extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($comments) && !is_string($comments)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($comments)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($comments, true), gettype($comments)), __LINE__);
         }
         $this->comments = $comments;
+        return $this;
+    }
+    /**
+     * Get description value
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+    /**
+     * Set description value
+     * @param string $description
+     * @return \ColissimoPostage\StructType\CustomsDeclarations
+     */
+    public function setDescription($description = null)
+    {
+        // validation for constraint: string
+        if (!is_null($description) && !is_string($description)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($description, true), gettype($description)), __LINE__);
+        }
+        $this->description = $description;
         return $this;
     }
     /**
@@ -263,7 +295,7 @@ class CustomsDeclarations extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($invoiceNumber) && !is_string($invoiceNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($invoiceNumber)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($invoiceNumber, true), gettype($invoiceNumber)), __LINE__);
         }
         $this->invoiceNumber = $invoiceNumber;
         return $this;
@@ -285,7 +317,7 @@ class CustomsDeclarations extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($licenceNumber) && !is_string($licenceNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($licenceNumber)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($licenceNumber, true), gettype($licenceNumber)), __LINE__);
         }
         $this->licenceNumber = $licenceNumber;
         return $this;
@@ -307,7 +339,7 @@ class CustomsDeclarations extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($certificatNumber) && !is_string($certificatNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($certificatNumber)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($certificatNumber, true), gettype($certificatNumber)), __LINE__);
         }
         $this->certificatNumber = $certificatNumber;
         return $this;
@@ -329,25 +361,5 @@ class CustomsDeclarations extends AbstractStructBase
     {
         $this->importerAddress = $importerAddress;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \ColissimoPostage\StructType\CustomsDeclarations
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

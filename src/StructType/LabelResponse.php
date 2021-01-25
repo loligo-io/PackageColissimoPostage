@@ -13,7 +13,7 @@ class LabelResponse extends AbstractStructBase
 {
     /**
      * The label
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - expectedContentTypes: application/octet-stream
      * - minOccurs: 0
      * @var string
@@ -21,7 +21,7 @@ class LabelResponse extends AbstractStructBase
     public $label;
     /**
      * The cn23
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - expectedContentTypes: application/octet-stream
      * - minOccurs: 0
      * @var string
@@ -29,21 +29,21 @@ class LabelResponse extends AbstractStructBase
     public $cn23;
     /**
      * The parcelNumber
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $parcelNumber;
     /**
      * The parcelNumberPartner
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $parcelNumberPartner;
     /**
      * The pdfUrl
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -87,7 +87,7 @@ class LabelResponse extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($label) && !is_string($label)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($label)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($label, true), gettype($label)), __LINE__);
         }
         $this->label = $label;
         return $this;
@@ -109,7 +109,7 @@ class LabelResponse extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($cn23) && !is_string($cn23)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($cn23)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($cn23, true), gettype($cn23)), __LINE__);
         }
         $this->cn23 = $cn23;
         return $this;
@@ -131,7 +131,7 @@ class LabelResponse extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($parcelNumber) && !is_string($parcelNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($parcelNumber)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($parcelNumber, true), gettype($parcelNumber)), __LINE__);
         }
         $this->parcelNumber = $parcelNumber;
         return $this;
@@ -153,7 +153,7 @@ class LabelResponse extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($parcelNumberPartner) && !is_string($parcelNumberPartner)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($parcelNumberPartner)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($parcelNumberPartner, true), gettype($parcelNumberPartner)), __LINE__);
         }
         $this->parcelNumberPartner = $parcelNumberPartner;
         return $this;
@@ -175,29 +175,9 @@ class LabelResponse extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($pdfUrl) && !is_string($pdfUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($pdfUrl)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($pdfUrl, true), gettype($pdfUrl)), __LINE__);
         }
         $this->pdfUrl = $pdfUrl;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \ColissimoPostage\StructType\LabelResponse
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }
