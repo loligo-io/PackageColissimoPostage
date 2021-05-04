@@ -1,5 +1,5 @@
 {
-    "name": "wsdltophp/package-colissimo-postage",
+    "name": "loligo-io/package-colissimo-postage",
     "description": "Package generated from https://ws.colissimo.fr/sls-ws/SlsServiceWS?wsdl using wsdltophp/packagegenerator",
     "require": {
         "php": ">=5.3.3",
